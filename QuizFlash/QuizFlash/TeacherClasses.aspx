@@ -1,10 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TeacherHomepage.aspx.cs" Inherits="QuizFlash.TeacherHomepage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TeacherClasses.aspx.cs" Inherits="QuizFlash.TeacherClasses" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Teacher Homepage</title>
+    <title>Teacher Classes</title>
+
 
     <link rel="stylesheet" href="master.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -19,7 +20,7 @@
 
 </head>
 <body>
-    <form id="frmTeacherHomepage" runat="server">
+    <form id="frmTeacherClasses" runat="server">
         
         <nav class="navbar navbar-expand-lg" style="background-color: #8ec0e7; background: #8ec0e7;">
             <a class="navbar-brand text-light" href="StudentHomepage.aspx">
@@ -27,19 +28,7 @@
             
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item mx-1">
-                        <asp:TextBox ID="txtSearchSets" CssClass="form-control" Width="200px" runat="server"></asp:TextBox>
-                    </li>
-                    <li>
-                        <asp:Button ID="btnSearchSets" runat="server" Text="Search" CssClass="btn btn-info" />
-                        &nbsp; &nbsp; &nbsp;
-                    </li>
-                    <li class="nav-item mx-1">
-                        <a class="navbar-brand text-light" href="TeacherClasses.aspx">Classes</a>
-                    </li>
-                    <li class="nav-item mx-1">
-                        <a class="navbar-brand text-light" href="TeacherCreate.aspx">Create</a>
-                    </li>
+                   
                     
                 </ul>
                 <div class="form-inline my-2 my-lg-0">
