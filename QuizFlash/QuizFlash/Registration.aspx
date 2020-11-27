@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
                 <asp:Label ID="lblUserType" CssClass ="form-control" runat="server" Text="User Type: "></asp:Label>
-                <asp:DropDownList ID="ddlUserType" CssClass ="form-control" runat="server">
+                <asp:DropDownList ID="ddlUserType" Width="300px" CssClass ="form-control" runat="server">
                     <asp:ListItem>Student</asp:ListItem>
                     <asp:ListItem>Teacher</asp:ListItem>
                 </asp:DropDownList>

@@ -7,7 +7,7 @@
     <title>Teacher Classes</title>
 
 
-    <link rel="stylesheet" href="master.css" />
+    <link rel="stylesheet" href="" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
@@ -23,7 +23,7 @@
     <form id="frmTeacherClasses" runat="server">
         
         <nav class="navbar navbar-expand-lg" style="background-color: #8ec0e7; background: #8ec0e7;">
-            <a class="navbar-brand text-light" href="StudentHomepage.aspx">
+            <a class="navbar-brand text-light" href="TeacherHomepage.aspx">
                 <img src="/Images/QuizFlashLogo.png" alt="" /></a>
             
             <div class="collapse navbar-collapse">
@@ -38,6 +38,26 @@
                 </div>
             </div>
         </nav>
+
+        <div class="container-fluid">
+            <div class="d-flex justify-content-center">
+                <div class="row">
+
+                    *Buttons to add a new class, edit a class, edit a quiz*
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="d-flex justify-content-center">
+                <div class="row">
+
+                    *Forms for adding a new class, editing a class, editing a quiz*
+
+                </div>
+            </div>
+        </div>
 
     </form>
 </body>

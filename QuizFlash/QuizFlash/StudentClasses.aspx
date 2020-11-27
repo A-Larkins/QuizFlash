@@ -7,7 +7,7 @@
     <title>Student Classes</title>
 
     
-    <link rel="stylesheet" href="master.css" />
+    <link rel="stylesheet" href="" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
@@ -39,6 +39,24 @@
             </div>
         </nav>
 
+        <div class="container-fluid">
+            <div class="d-flex justify-content-center">
+
+                <div class="row">
+                    <h1>My Classes</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="d-flex justify-content-center">
+                <div class="row">
+
+                    *View of classes that can be clicked into where quizzes can be clicked on*
+
+                </div>
+            </div>
+        </div>
 
 
     </form>

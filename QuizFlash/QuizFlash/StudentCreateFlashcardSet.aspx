@@ -40,6 +40,16 @@
             </div>
         </nav>
 
+        <div class="container-fluid">
+            <div class="d-flex justify-content-center">
+                <div class="row">
+
+                    *Form for creating a set of flashcards*
+
+                </div>
+            </div>
+        </div>
+
     </form>
 </body>
 </html>

@@ -74,6 +74,7 @@
     <Content Include="StudentClasses.aspx" />
     <Content Include="StudentCreateFlashcardSet.aspx" />
     <Content Include="StudentHomepage.aspx" />
+    <Content Include="Styles\HomepageStyle.css" />
     <Content Include="Styles\LoginStyle.css" />
     <Content Include="TeacherClasses.aspx" />
     <Content Include="TeacherCreate.aspx" />
