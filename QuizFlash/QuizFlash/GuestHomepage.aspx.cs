@@ -13,5 +13,11 @@ namespace QuizFlash
         {
 
         }
+
+        protected void btnCreateAnAccount_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Registration.aspx");
+        }
+
     }
 }

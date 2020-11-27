@@ -28,54 +28,7 @@ namespace QuizFlash
             }
         }
 
-        // login button event handler
-        protected void btnLogin_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                lblErrorMessage.Text = "";
-                String username = txtUsername.Text;
-                String password = txtPassword.Text;
-                String userType = ddlUserType.SelectedValue;
-
-                if (!ValidLogin())
-                {
-                    lblErrorMessage.Visible = true;
-                    lblErrorMessage.Text = "Cound not login";
-                    return;
-                }
-                User objUser = GetUserLogin(username, userType);
-                objUser.UserType = ddlUserType.SelectedValue;
-                Session["userID"] = objUser.UserID;
-                Session["username"] = objUser.Username;
-                Session["userType"] = objUser.UserType;
-
-                // remember me option creates a user cookie so user can
-                // skip login page upon re-entry.
-                if (chkRememberMe.Checked)
-                {
-                    String encryptedPassword = encrypt.DoEncryption(password);
-                    HttpCookie cookie = new HttpCookie("LoginCookie");
-                    cookie.Values["Username"] = username;
-                    cookie.Values["Password"] = encryptedPassword;
-                    cookie.Expires = new DateTime(2030, 1, 1);
-                    Response.Cookies.Add(cookie);
-                }
-
-                if (objUser.UserType == "Student")
-                {
-                    Response.Redirect("StudentHomepage.aspx");
-                }
-                else if (objUser.UserType == "Teacher")
-                {
-                    Response.Redirect("TeacherHomepage.aspx");
-                }
-            }
-            catch (Exception ex)
-            {
-                lblErrorMessage.Text = ex.Message;
-            }
-        }
+      
 
         private User GetUserLogin(String username, String userType)
         {
@@ -140,5 +93,54 @@ namespace QuizFlash
             Response.Redirect("GuestHomepage.aspx");
         }
 
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lblErrorMessage.Text = "";
+                String username = txtUsername.Text;
+                String password = txtPassword.Text;
+                String userType = ddlUserType.SelectedValue;
+
+                if (!ValidLogin())
+                {
+                    lblErrorMessage.Visible = true;
+                    lblErrorMessage.Text = "Cound not login";
+                    return;
+                }
+                User objUser = GetUserLogin(username, userType);
+                objUser.UserType = ddlUserType.SelectedValue;
+                Session["userID"] = objUser.UserID;
+                Session["username"] = objUser.Username;
+                Session["userType"] = objUser.UserType;
+
+                // remember me option creates a user cookie so user can
+                // skip login page upon re-entry.
+                if (chkRememberMe.Checked)
+                {
+                    String encryptedPassword = encrypt.DoEncryption(password);
+                    HttpCookie cookie = new HttpCookie("LoginCookie");
+                    cookie.Values["Username"] = username;
+                    cookie.Values["Password"] = encryptedPassword;
+                    cookie.Expires = new DateTime(2030, 1, 1);
+                    Response.Cookies.Add(cookie);
+                }
+
+                if (objUser.UserType == "Student")
+                {
+                    Response.Redirect("StudentHomepage.aspx");
+                }
+                else if (objUser.UserType == "Teacher")
+                {
+                    Response.Redirect("TeacherHomepage.aspx");
+                }
+            }
+            catch (Exception ex)
+            {
+                lblErrorMessage.Text = ex.Message;
+            }
+
+
+        }
     }
 }
