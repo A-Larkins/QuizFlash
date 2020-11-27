@@ -77,13 +77,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Guest.Master.cs">
-      <DependentUpon>Guest.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Guest.Master.designer.cs">
-      <DependentUpon>Guest.Master</DependentUpon>
-    </Compile>
     <Compile Include="GuestHomepage.aspx.cs">
       <DependentUpon>GuestHomepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -113,26 +106,12 @@
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Student.Master.cs">
-      <DependentUpon>Student.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Student.Master.designer.cs">
-      <DependentUpon>Student.Master</DependentUpon>
-    </Compile>
     <Compile Include="StudentHomepage.aspx.cs">
       <DependentUpon>StudentHomepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="StudentHomepage.aspx.designer.cs">
       <DependentUpon>StudentHomepage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Teacher.Master.cs">
-      <DependentUpon>Teacher.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Teacher.Master.designer.cs">
-      <DependentUpon>Teacher.Master</DependentUpon>
     </Compile>
     <Compile Include="TeacherHomepage.aspx.cs">
       <DependentUpon>TeacherHomepage.aspx</DependentUpon>
@@ -143,10 +122,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Guest.Master" />
     <None Include="packages.config" />
-    <Content Include="Student.Master" />
-    <Content Include="Teacher.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

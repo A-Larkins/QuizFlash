@@ -24,7 +24,7 @@
     </div>
     <br />
     <div class="form-group">
-        <asp:Button ID="btnLogin" CssClass="form-control" runat="server" Text="Login" OnClick="btnLogin_Click" />
+        <asp:Button ID="btnLogin" CssClass="form-control" runat="server" Text="Login" OnClick="btnLogin_Click"  />
     </div>
     <div class="form-group">
         <asp:Button ID="btnRegister" CssClass="form-control" runat="server" Text="Register" OnClick="Register_Click" />
