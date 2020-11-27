@@ -22,25 +22,29 @@
     <form id="frmTeacherHomepage" runat="server">
         
         <nav class="navbar navbar-expand-lg" style="background-color: #8ec0e7; background: #8ec0e7;">
-            <a class="navbar-brand text-light" href="#">
+            <a class="navbar-brand text-light" href="StudentHomepage.aspx">
                 <img src="/Images/QuizFlashLogo.png" alt="" /></a>
-           
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
+            <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item mx-1">
-                        <a href="">Search</a>
+                        <asp:TextBox ID="txtSearchSets" CssClass="form-control" Width="200px" runat="server"></asp:TextBox>
+                    </li>
+                    <li>
+                        <asp:Button ID="btnSearchSets" runat="server" Text="Search" CssClass="btn btn-info" />
+                        &nbsp; &nbsp; &nbsp;
                     </li>
                     <li class="nav-item mx-1">
-                        <a href="">Classes</a>
+                        <a class="navbar-brand text-light" href="">Classes</a>
                     </li>
                     <li class="nav-item mx-1">
-                        <a href="">Create</a>
+                        <a class="navbar-brand text-light" href="">Create</a>
                     </li>
                     
                 </ul>
                 <div class="form-inline my-2 my-lg-0">
-                    <asp:Label ID="lblUserName" runat="server" CssClass="mr-3"></asp:Label>
+                    <asp:Label ID="lblUserName" runat="server" CssClass="navbar-brand text-light" Text="Username"></asp:Label>
+                    &nbsp; &nbsp;
                     <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="btn btn-info" OnClick="btnLogout_Click" />
                 </div>
             </div>
