@@ -24,9 +24,7 @@
         <nav class="navbar navbar-expand-lg" style="background-color: #8ec0e7; background: #8ec0e7;">
             <a class="navbar-brand text-light" href="#">
                 <img src="/Images/QuizFlashLogo.png" alt="" /></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">

@@ -11,7 +11,13 @@ namespace QuizFlash
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblUserName.Text = Session["username"].ToString();
+        }
 
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session["username"] = "";
+            Response.Redirect("LoginPage.aspx");
         }
     }
 }
