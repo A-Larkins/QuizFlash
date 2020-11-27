@@ -36,10 +36,10 @@
                         &nbsp; &nbsp; &nbsp;
                     </li>
                     <li class="nav-item mx-1">
-                        <a class="navbar-brand text-light" href="">Classes</a>
+                        <a class="navbar-brand text-light" href="StudentClasses.aspx">Classes</a>
                     </li>
                     <li class="nav-item mx-1">
-                        <a class="navbar-brand text-light" href="">Create</a>
+                        <a class="navbar-brand text-light" href="StudentCreateFlashcardSet.aspx">Create</a>
                     </li>
                     
                 </ul>

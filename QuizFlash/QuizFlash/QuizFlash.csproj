@@ -71,8 +71,12 @@
     <Content Include="LoginControl.ascx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="Registration.aspx" />
+    <Content Include="StudentClasses.aspx" />
+    <Content Include="StudentCreateFlashcardSet.aspx" />
     <Content Include="StudentHomepage.aspx" />
     <Content Include="Styles\LoginStyle.css" />
+    <Content Include="TeacherClasses.aspx" />
+    <Content Include="TeacherCreate.aspx" />
     <Content Include="TeacherHomepage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -106,12 +110,40 @@
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
+    <Compile Include="StudentClasses.aspx.cs">
+      <DependentUpon>StudentClasses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentClasses.aspx.designer.cs">
+      <DependentUpon>StudentClasses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentCreateFlashcardSet.aspx.cs">
+      <DependentUpon>StudentCreateFlashcardSet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentCreateFlashcardSet.aspx.designer.cs">
+      <DependentUpon>StudentCreateFlashcardSet.aspx</DependentUpon>
+    </Compile>
     <Compile Include="StudentHomepage.aspx.cs">
       <DependentUpon>StudentHomepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="StudentHomepage.aspx.designer.cs">
       <DependentUpon>StudentHomepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherClasses.aspx.cs">
+      <DependentUpon>TeacherClasses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherClasses.aspx.designer.cs">
+      <DependentUpon>TeacherClasses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherCreate.aspx.cs">
+      <DependentUpon>TeacherCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherCreate.aspx.designer.cs">
+      <DependentUpon>TeacherCreate.aspx</DependentUpon>
     </Compile>
     <Compile Include="TeacherHomepage.aspx.cs">
       <DependentUpon>TeacherHomepage.aspx</DependentUpon>
