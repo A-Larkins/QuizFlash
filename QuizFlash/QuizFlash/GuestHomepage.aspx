@@ -6,7 +6,7 @@
 <head runat="server">
     <title>Guest Homepage</title>
     
-    <link rel="stylesheet" href="master.css" />
+    <link rel="stylesheet" href="Styles/HomepageStyle.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
@@ -40,6 +40,19 @@
                 </div>
             </div>
         </nav>
+
+        <div class="container-fluid">
+            <div class="d-flex justify-content-center">
+
+                <div class="row">
+                    <div class="jumbotron-fluid" id="jumbo">
+                        <h1 class="display-4">Flashcard Sets</h1>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
 
     </form>
 </body>

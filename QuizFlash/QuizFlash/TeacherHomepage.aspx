@@ -6,7 +6,7 @@
 <head runat="server">
     <title>Teacher Homepage</title>
 
-    <link rel="stylesheet" href="master.css" />
+    <link rel="stylesheet" href="Styles/HomepageStyle.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
@@ -49,6 +49,45 @@
                 </div>
             </div>
         </nav>
+
+        <div class="container-fluid">
+            <div class="d-flex justify-content-center">
+
+                <div class="row">
+                    <h1>My Flashcard Sets</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="d-flex justify-content-center">
+                <div class="row">
+
+                    *Flashcard sets with edit and study buttons*
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="d-flex justify-content-center">
+                <div class="row">
+                    <h1>All Flashcard Sets</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="d-flex justify-content-center">
+                <div class="row">
+                    
+                    *Flashcard sets with study buttons displaying 20 at a time*
+
+                </div>
+            </div>
+        </div>
+
+
 
     </form>
 </body>
