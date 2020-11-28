@@ -80,39 +80,100 @@ namespace FlashcardsWebAPI.Controllers
             return set;
         }
 
-     //   // Insert a flashcard
-     //   [HttpPost()] // route: POST api/flashcards
-     //   [HttpPost("AddFlashcard")] // route: POST api/flashcards/addflashcard
-     //   public Boolean AddFlashcard([FromBody]Flashcard flashcard)
-     //   {
-     //       if(flashcard != null)
-     //       {
-     //           DBConnect db = new DBConnect();
-     //           SqlCommand sqlCmd = new SqlCommand();
-     //
-     //           sqlCmd.CommandType = CommandType.StoredProcedure;
-     //           sqlCmd.CommandText = "TP_CreateNewFlashcard";
-     //           sqlCmd.Parameters.AddWithValue("FlashcardID", flashcard.FlashcardID);
-     //
-     //       }
-     //   }
-     //
+        // test
+        [HttpPost()] // route: POST api/flashcards
+        public String Post([FromBody]Flashcard flashcard)
+        {
+            return "WebAPI received: " + flashcard.FlashcardID + ", " + flashcard.FlashcardSet;
+        }
 
-        // Update set of flashcards
+        // Insert a flashcard
+        [HttpPost("AddFlashcard")] // route: POST api/flashcards/addflashcard
+        public Boolean AddFlashcard([FromBody]Flashcard flashcard)
+        {
+            if(flashcard != null)
+            {
+                DBConnect db = new DBConnect();
+                SqlCommand sqlCmd = new SqlCommand();
+     
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.CommandText = "TP_CreateNewFlashcard";
+                sqlCmd.Parameters.AddWithValue("@FlashcardID", flashcard.FlashcardID);
+                sqlCmd.Parameters.AddWithValue("@FlashcardSet", flashcard.FlashcardSet);
+                sqlCmd.Parameters.AddWithValue("@FlashcardSubject", flashcard.FlashcardSubject);
+                sqlCmd.Parameters.AddWithValue("@FlashcardQuestion", flashcard.FlashcardQuestion);
+                sqlCmd.Parameters.AddWithValue("@FlashcardAnswer", flashcard.FlashcardAnswer);
+                sqlCmd.Parameters.AddWithValue("@FlashcardImage", flashcard.FlashcardImage);
+                sqlCmd.Parameters.AddWithValue("@FlashcardUsername", flashcard.FlashcardUsername);
 
-
+                int retval = db.DoUpdateUsingCmdObj(sqlCmd);
+                if (retval > 0)
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         // Update flashcard
+        [HttpPut()] // route: PUT api/flashcards/
+        [HttpPut("UpdateFlashcard")]  // PUT api/flashcards/updateflashcard
+        public Boolean UpdateFlashcard([FromBody]Flashcard flashcard)
+        {
+            if (flashcard != null)
+            {
+                DBConnect db = new DBConnect();
+                SqlCommand sqlCmd = new SqlCommand();
 
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.CommandText = "TP_UpdateFlashcard";
+                sqlCmd.Parameters.AddWithValue("@FlashcardID", flashcard.FlashcardID);
+                sqlCmd.Parameters.AddWithValue("@FlashcardSet", flashcard.FlashcardSet);
+                sqlCmd.Parameters.AddWithValue("@FlashcardSubject", flashcard.FlashcardSubject);
+                sqlCmd.Parameters.AddWithValue("@FlashcardQuestion", flashcard.FlashcardQuestion);
+                sqlCmd.Parameters.AddWithValue("@FlashcardAnswer", flashcard.FlashcardAnswer);
+                sqlCmd.Parameters.AddWithValue("@FlashcardImage", flashcard.FlashcardImage);
+                sqlCmd.Parameters.AddWithValue("@FlashcardUsername", flashcard.FlashcardUsername);
 
-
-        // Delete set of flashcards
-
-
-
+                int retval = db.DoUpdateUsingCmdObj(sqlCmd);
+                if (retval > 0)
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        
         // Delete flashcard
+        [HttpDelete()] // route: DELETE api/flashcards
+        public Boolean DeleteFlashcard([FromBody]Flashcard flashcard)
+        {
+            if (flashcard != null)
+            {
+                DBConnect db = new DBConnect();
+                SqlCommand sqlCmd = new SqlCommand();
 
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.CommandText = "TP_DeleteFlashcard";
+                sqlCmd.Parameters.AddWithValue("@FlashcardID", flashcard.FlashcardID);
 
+                int retval = db.DoUpdateUsingCmdObj(sqlCmd);
+                if (retval > 0)
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
 
     }
