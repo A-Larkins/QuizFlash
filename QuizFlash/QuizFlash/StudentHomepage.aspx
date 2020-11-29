@@ -65,6 +65,7 @@
                 <div class="row">
 
                     *flashcard sets with edit and study buttons*
+                    
 
                 </div>
             </div>
@@ -74,21 +75,12 @@
             <div class="d-flex justify-content-center">
                 <div class="row">
                     <h1>All Flashcard Sets</h1>
+                    <asp:GridView ID="gvAllFlashcardSets" runat="server">
+
+                    </asp:GridView>
                 </div>
             </div>
         </div>
-
-        <div class="container-fluid">
-            <div class="d-flex justify-content-center">
-                <div class="row">
-                    
-                    *flashcard sets with study buttons displaying 20 at a time*
-
-                </div>
-            </div>
-        </div>
-
-        
 
     </form>
 </body>

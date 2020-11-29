@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 using FlashcardsWebAPI.Models;
-using QuizFlashLibrary;
 using System.Data;
 using System.Data.SqlClient;
+using QuizFlashLibrary;
 
 namespace FlashcardsWebAPI.Controllers
 {
@@ -76,6 +76,32 @@ namespace FlashcardsWebAPI.Controllers
                 flashcard.FlashcardImage = record["Image"].ToString();
                 flashcard.FlashcardUsername = record["Username"].ToString();
                 set.Add(flashcard);
+            }
+            return set;
+        }
+
+        // Get all sets of flashcards
+        // route: api/flashcards/getallsetsofflashcards
+        [HttpGet("GetAllSetsOfFlashcards")]
+        public List<FlashcardSet> GetAllSetsOfFlashcards()
+        {
+            DBConnect db = new DBConnect();
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "TP_GetAllSetsOfFlashcards";
+            DataSet ds = db.GetDataSetUsingCmdObj(sqlCmd);
+
+            List<FlashcardSet> set = new List<FlashcardSet>();
+            FlashcardSet flashcardSet;
+
+            foreach (DataRow record in ds.Tables[0].Rows)
+            {
+
+                flashcardSet = new FlashcardSet();
+                flashcardSet.FlashcardSetName = record["Flashcard_Set"].ToString();
+                flashcardSet.Subject = record["Subject"].ToString();
+                flashcardSet.Username = record["Username"].ToString();
+                set.Add(flashcardSet);
             }
             return set;
         }
