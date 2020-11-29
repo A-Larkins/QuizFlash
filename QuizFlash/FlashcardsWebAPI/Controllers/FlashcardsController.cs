@@ -118,6 +118,34 @@ namespace FlashcardsWebAPI.Controllers
             }
         }
 
+        // Insert set of flashcards
+        [HttpPost("InsertFlashcardSet")] // route: api/flashcards/insertflashcardset
+        public Boolean InsertFlashcardSet([FromBody] List<Flashcard> flashcards)
+        {
+            int retval = 0;
+            DBConnect db = new DBConnect();
+            SqlCommand sqlCmd = new SqlCommand();
+
+            foreach (Flashcard flashcard in flashcards)
+            {
+                sqlCmd.Parameters.Clear();
+                sqlCmd.CommandText = "TP_CreateNewFlashcard";
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.AddWithValue("@FlashcardID", flashcard.FlashcardID);
+                sqlCmd.Parameters.AddWithValue("@FlashcardSet", flashcard.FlashcardSet);
+                sqlCmd.Parameters.AddWithValue("@FlashcardSubject", flashcard.FlashcardSubject);
+                sqlCmd.Parameters.AddWithValue("@FlashcardQuestion", flashcard.FlashcardQuestion);
+                sqlCmd.Parameters.AddWithValue("@FlashcardAnswer", flashcard.FlashcardAnswer);
+                sqlCmd.Parameters.AddWithValue("@FlashcardImage", flashcard.FlashcardImage);
+                sqlCmd.Parameters.AddWithValue("@FlashcardUsername", flashcard.FlashcardUsername);
+                retval = db.DoUpdateUsingCmdObj(sqlCmd);
+            }
+            if (retval > 0)
+                return true;
+            else
+                return false;
+        }
+
         // Update flashcard
         [HttpPut()] // route: PUT api/flashcards/
         [HttpPut("UpdateFlashcard")]  // PUT api/flashcards/updateflashcard
@@ -152,6 +180,7 @@ namespace FlashcardsWebAPI.Controllers
         
         // Delete flashcard
         [HttpDelete()] // route: DELETE api/flashcards
+        [HttpDelete("DeleteFlashcard")] // route: DELETE api/flashcards/deleteflashcard
         public Boolean DeleteFlashcard([FromBody]Flashcard flashcard)
         {
             if (flashcard != null)
@@ -162,6 +191,31 @@ namespace FlashcardsWebAPI.Controllers
                 sqlCmd.CommandType = CommandType.StoredProcedure;
                 sqlCmd.CommandText = "TP_DeleteFlashcard";
                 sqlCmd.Parameters.AddWithValue("@FlashcardID", flashcard.FlashcardID);
+
+                int retval = db.DoUpdateUsingCmdObj(sqlCmd);
+                if (retval > 0)
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        // delete entire set of flashcards
+        [HttpDelete("DeleteSetOfFlashcards")] // route: DELETE api/flashcards/deleteSetOfflashcard
+        public Boolean DeleteSetOfFlashcards([FromBody]Flashcard flashcard)
+        {
+            if (flashcard != null)
+            {
+                DBConnect db = new DBConnect();
+                SqlCommand sqlCmd = new SqlCommand();
+
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.CommandText = "TP_DeleteSetOfFlashcards";
+                sqlCmd.Parameters.AddWithValue("@FlashcardSet", flashcard.FlashcardSet);
 
                 int retval = db.DoUpdateUsingCmdObj(sqlCmd);
                 if (retval > 0)
