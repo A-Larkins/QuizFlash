@@ -50,5 +50,9 @@ namespace QuizFlash
             Session["username"] = "";
             Response.Redirect("LoginPage.aspx");
         }
+
+        
+
+
     }
 }
