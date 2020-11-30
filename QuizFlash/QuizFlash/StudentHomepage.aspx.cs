@@ -19,6 +19,8 @@ namespace QuizFlash
         {
             if(!IsPostBack)
             {
+                // Bind to gridview for showing all sets of flashcards
+                // with data from flashcards web api
                 lblUserName.Text = Session["username"].ToString();
 
                 // Create an HTTP Web Request and get the HTTP Web Response from the server.
