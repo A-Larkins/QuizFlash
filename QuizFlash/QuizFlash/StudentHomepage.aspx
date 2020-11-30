@@ -75,12 +75,16 @@
             <div class="d-flex justify-content-center">
                 <div class="row">
                     <h1>All Flashcard Sets</h1>
-                    <asp:GridView ID="gvAllFlashcardSets" runat="server" AutoGenerateColumns="False">
+                    <asp:GridView ID="gvAllFlashcardSets" OnRowCommand="gvAllFlashcardSets_OnRowCommand" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="gvAllFlashcardSets_SelectedIndexChanged" Width="383px">
                         <Columns>
                             <asp:BoundField HeaderText="Flashcard Set" DataField="NameOfFlashcardSet" />
                             <asp:BoundField DataField="SubjectOfFlashcardSet" HeaderText="Subject" />
                             <asp:BoundField DataField="UsernameOfFlashcardSet" HeaderText="Created By" />
-                            <asp:ButtonField ButtonType="Button" Text="Study" />
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:Button ID="btnStudy" CausesValidation="false" CommandName="Study" Text="Study" CommandArgument='<%# Eval("setName") %>' runat="server" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
                 </div>
