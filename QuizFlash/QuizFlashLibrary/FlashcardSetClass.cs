@@ -1,31 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-using Newtonsoft.Json.Serialization;
 
-namespace FlashcardsWebAPI.Models
+
+namespace QuizFlashLibrary
 {
-    public class FlashcardSet
+    
+    public class FlashcardSetClass
     {
 
         public String nameOfFlashcardSet;
         public String subjectOfFlashcardSet;
         public String usernameOfFlashcardSet;
 
-
-        public FlashcardSet()
+        public FlashcardSetClass()
         {
 
         }
 
-        public FlashcardSet(String flashcardSetName, String subject, String username)
+        public FlashcardSetClass(String flashcardSetName, String subject, String username)
         {
             this.nameOfFlashcardSet = flashcardSetName;
             this.subjectOfFlashcardSet = subject;
             this.usernameOfFlashcardSet = username;
         }
+
 
     }
 }
