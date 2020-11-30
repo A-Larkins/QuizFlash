@@ -9,6 +9,7 @@ using FlashcardsWebAPI.Models;
 using System.Data;
 using System.Data.SqlClient;
 using QuizFlashLibrary;
+using Newtonsoft.Json.Serialization;
 
 namespace FlashcardsWebAPI.Controllers
 {
@@ -98,9 +99,9 @@ namespace FlashcardsWebAPI.Controllers
             {
 
                 flashcardSet = new FlashcardSet();
-                flashcardSet.FlashcardSetName = record["Flashcard_Set"].ToString();
-                flashcardSet.Subject = record["Subject"].ToString();
-                flashcardSet.Username = record["Username"].ToString();
+                flashcardSet.nameOfFlashcardSet = record["Flashcard_Set"].ToString();
+                flashcardSet.subjectOfFlashcardSet = record["Subject"].ToString();
+                flashcardSet.usernameOfFlashcardSet = record["Username"].ToString();
                 set.Add(flashcardSet);
             }
             return set;

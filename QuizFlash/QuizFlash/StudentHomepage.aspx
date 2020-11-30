@@ -75,8 +75,13 @@
             <div class="d-flex justify-content-center">
                 <div class="row">
                     <h1>All Flashcard Sets</h1>
-                    <asp:GridView ID="gvAllFlashcardSets" runat="server">
-
+                    <asp:GridView ID="gvAllFlashcardSets" runat="server" AutoGenerateColumns="False">
+                        <Columns>
+                            <asp:BoundField DataFormatString="nameOfFlashcardSet" HeaderText="Flashcard Set" />
+                            <asp:BoundField DataField="subjectOfFlashcardSet" HeaderText="Subject" />
+                            <asp:BoundField DataField="usernameOfFlashcardSet" HeaderText="Created By" />
+                            <asp:ButtonField ButtonType="Button" Text="Study" />
+                        </Columns>
                     </asp:GridView>
                 </div>
             </div>
