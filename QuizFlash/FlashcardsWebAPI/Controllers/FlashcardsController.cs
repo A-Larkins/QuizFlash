@@ -100,8 +100,8 @@ namespace FlashcardsWebAPI.Controllers
 
                 flashcardSet = new FlashcardSet();
                 flashcardSet.NameOfFlashcardSet = record["Flashcard_Set"].ToString();
-                flashcardSet.subjectOfFlashcardSet = record["Subject"].ToString();
-                flashcardSet.usernameOfFlashcardSet = record["Username"].ToString();
+                flashcardSet.SubjectOfFlashcardSet = record["Subject"].ToString();
+                flashcardSet.UsernameOfFlashcardSet = record["Username"].ToString();
                 set.Add(flashcardSet);
             }
             return set;
