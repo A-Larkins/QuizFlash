@@ -10,7 +10,6 @@ using System.IO;                        // needed for Stream and Stream Reader
 using System.Net;                       // needed for the Web Request
 using QuizFlashLibrary;
 
-
 namespace QuizFlash
 {
     public partial class StudentHomepage : System.Web.UI.Page
@@ -23,7 +22,7 @@ namespace QuizFlash
                 lblUserName.Text = Session["username"].ToString();
 
                 // Create an HTTP Web Request and get the HTTP Web Response from the server.
-                // WebRequest request = WebRequest.Create("http://cis-iis2.temple.edu/");
+                //WebRequest request = WebRequest.Create("https://cis-iis2.temple.edu/fall2020/CIS3342_tuh34847/webapitest/api/flashcards/getallsetsofflashcards");
                 WebRequest request = WebRequest.Create("https://localhost:44355/api/flashcards/getallsetsofflashcards");
                 WebResponse response = request.GetResponse();
                 
@@ -38,7 +37,7 @@ namespace QuizFlash
                 // Deserialize a JSON string that contains an array of JSON objects into an Array of flashcardset objects.
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 FlashcardSetClass[] sets = js.Deserialize<FlashcardSetClass[]>(data);
-                
+
                 gvAllFlashcardSets.DataSource = sets;
                 gvAllFlashcardSets.DataBind();
             }
