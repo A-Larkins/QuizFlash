@@ -77,9 +77,9 @@
                     <h1>All Flashcard Sets</h1>
                     <asp:GridView ID="gvAllFlashcardSets" runat="server" AutoGenerateColumns="False">
                         <Columns>
-                            <asp:BoundField HeaderText="Flashcard Set" DataField="flashcardSetName" />
-                            <asp:BoundField DataField="flashcardSetSubject" HeaderText="Subject" />
-                            <asp:BoundField DataField="flashcardSetUsername" HeaderText="Created By" />
+                            <asp:BoundField HeaderText="Flashcard Set" DataField="NameOfFlashcardSet" />
+                            <asp:BoundField DataField="SubjectOfFlashcardSet" HeaderText="Subject" />
+                            <asp:BoundField DataField="UsernameOfFlashcardSet" HeaderText="Created By" />
                             <asp:ButtonField ButtonType="Button" Text="Study" />
                         </Columns>
                     </asp:GridView>

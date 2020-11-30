@@ -10,9 +10,9 @@ namespace FlashcardsWebAPI.Models
     public class FlashcardSet
     {
 
-        public String nameOfFlashcardSet;
-        public String subjectOfFlashcardSet;
-        public String usernameOfFlashcardSet;
+        public String NameOfFlashcardSet { get; set; }
+        public String SubjectOfFlashcardSet { get; set; }
+        public String UsernameOfFlashcardSet { get; set; }
 
 
         public FlashcardSet()
@@ -22,9 +22,9 @@ namespace FlashcardsWebAPI.Models
 
         public FlashcardSet(String flashcardSetName, String subject, String username)
         {
-            this.nameOfFlashcardSet = flashcardSetName;
-            this.subjectOfFlashcardSet = subject;
-            this.usernameOfFlashcardSet = username;
+            this.NameOfFlashcardSet = flashcardSetName;
+            this.SubjectOfFlashcardSet = subject;
+            this.UsernameOfFlashcardSet = username;
         }
 
     }

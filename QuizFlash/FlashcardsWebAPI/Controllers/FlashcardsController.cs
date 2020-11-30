@@ -99,7 +99,7 @@ namespace FlashcardsWebAPI.Controllers
             {
 
                 flashcardSet = new FlashcardSet();
-                flashcardSet.nameOfFlashcardSet = record["Flashcard_Set"].ToString();
+                flashcardSet.NameOfFlashcardSet = record["Flashcard_Set"].ToString();
                 flashcardSet.subjectOfFlashcardSet = record["Subject"].ToString();
                 flashcardSet.usernameOfFlashcardSet = record["Username"].ToString();
                 set.Add(flashcardSet);
