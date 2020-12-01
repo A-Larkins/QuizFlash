@@ -107,6 +107,11 @@ namespace FlashcardsWebAPI.Controllers
             return set;
         }
 
+        // Get all sets of flashcards by username
+        // route: api/flashcards/getallsetsofflashcardsbyusername/alarksS
+
+
+
         // test
         [HttpPost()] // route: POST api/flashcards
         public String Post([FromBody]Flashcard flashcard)

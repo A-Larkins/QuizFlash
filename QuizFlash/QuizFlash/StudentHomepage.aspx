@@ -51,38 +51,45 @@
             </div>
         </nav>
 
-        <div class="container-fluid">
-            <div class="d-flex justify-content-center">
-
-                <div class="row">
-                    <h1>My Flashcard Sets</h1>
+        <div class="d-flex justify-content-center">
+            <h1>My Flashcard Sets</h1>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="table-responsive">
+                    <div class="table">
+                        <asp:GridView ID="gvMyFlashcardSets" UseAccessibleHeader="true" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" OnRowCommand="Study">
+                            <Columns>
+                                <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="NameOfFlashcardSet" HeaderText="Flashcard Set" />
+                                <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="SubjectOfFlashcardSet" HeaderText="Subject" />
+                                <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="UsernameOfFlashcardSet" HeaderText="Created By" />
+                                <asp:ButtonField HeaderStyle-BackColor="LightSeaGreen" ControlStyle-Width="75%" ControlStyle-CssClass="btn btn-primary" ItemStyle-HorizontalAlign="Center" ButtonType="Button" CommandName="Study" Text="Study" />  
+                                <asp:ButtonField HeaderStyle-BackColor="LightSeaGreen" ControlStyle-Width="75%" ControlStyle-CssClass="btn btn-primary" ItemStyle-HorizontalAlign="Center" ButtonType="Button" CommandName="Edit" Text="Edit" />   
+                            </Columns>
+                        </asp:GridView> 
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="container-fluid">
-            <div class="d-flex justify-content-center">
-                <div class="row">
-
-                    *flashcard sets with edit and study buttons*
-                    
-
-                </div>
-            </div>
+        <div class="d-flex justify-content-center">
+            <h1>All Flashcard Sets</h1>
         </div>
-
-        <div class="container-fluid">
-            <div class="d-flex justify-content-center">
-                <div class="row">
-                    <h1>All Flashcard Sets</h1>
-                    <asp:GridView ID="gvAllFlashcardSets" runat="server" AutoGenerateColumns="False">
-                        <Columns>
-                            <asp:BoundField HeaderText="Flashcard Set" DataField="NameOfFlashcardSet" />
-                            <asp:BoundField DataField="SubjectOfFlashcardSet" HeaderText="Subject" />
-                            <asp:BoundField DataField="UsernameOfFlashcardSet" HeaderText="Created By" />
-                            
-                        </Columns>
-                    </asp:GridView>
+        
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="table-responsive">
+                    <div class="table">
+                        <asp:GridView ID="gvAllFlashcardSets" UseAccessibleHeader="true" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" OnRowCommand="Study">
+                            <Columns>
+                                <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="NameOfFlashcardSet" HeaderText="Flashcard Set" />
+                                <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="SubjectOfFlashcardSet" HeaderText="Subject" />
+                                <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="UsernameOfFlashcardSet" HeaderText="Created By" />
+                                <asp:ButtonField HeaderStyle-BackColor="LightSeaGreen" ControlStyle-Width="75%" ControlStyle-CssClass="btn btn-primary" ItemStyle-HorizontalAlign="Center" ButtonType="Button" CommandName="Study" Text="Study" />   
+                            </Columns>
+                        </asp:GridView> 
+                    </div>
                 </div>
             </div>
         </div>
