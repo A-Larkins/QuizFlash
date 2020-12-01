@@ -109,7 +109,30 @@ namespace FlashcardsWebAPI.Controllers
 
         // Get all sets of flashcards by username
         // route: api/flashcards/getallsetsofflashcardsbyusername/alarksS
+        [HttpGet("GetAllSetsOfFlashcardsByUsername/{username}")]
+        public List<FlashcardSet> GetAllSetsOfFlashcardsByUsername(String username)
+        {
+            DBConnect db = new DBConnect();
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "TP_GetAllSetsOfFlashcardsByUsername";
+            sqlCmd.Parameters.AddWithValue("Username", username);
 
+            DataSet ds = db.GetDataSetUsingCmdObj(sqlCmd);
+
+            List<FlashcardSet> set = new List<FlashcardSet>();
+            FlashcardSet flashcardSet;
+
+            foreach (DataRow record in ds.Tables[0].Rows)
+            {
+                flashcardSet = new FlashcardSet();
+                flashcardSet.NameOfFlashcardSet = record["Flashcard_Set"].ToString();
+                flashcardSet.SubjectOfFlashcardSet = record["Subject"].ToString();
+                flashcardSet.UsernameOfFlashcardSet = record["Username"].ToString();
+                set.Add(flashcardSet);
+            }
+            return set;
+        }
 
 
         // test
