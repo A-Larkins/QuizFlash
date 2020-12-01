@@ -51,8 +51,15 @@ namespace QuizFlash
             Response.Redirect("LoginPage.aspx");
         }
 
-        
+        // when study button is fired from gridview
+        protected void Study(object sender, GridViewCommandEventArgs e)
+        {
+            int rowIndex = Convert.ToInt32(e.CommandArgument);
+            GridViewRow row = gvAllFlashcardSets.Rows[rowIndex];
+            String setName = row.Cells[0].Text;
 
+            //String txtVal = (row.FindControl("txtName") as TextBox).Text;
 
+        }
     }
 }
