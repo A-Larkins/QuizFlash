@@ -20,7 +20,7 @@ namespace FlashcardsWebAPI.Controllers
         [HttpGet] // route: api/flashcards
         public String Get()
         {
-            return "Hello there";
+            return "Hello there. -Obi-Wan";
         }
 
         [HttpGet("GetFlashcardByID/{ID}")] // route: api/flashcards/getflashcardbyid/0
