@@ -33,22 +33,22 @@ namespace QuizFlash
             // Bind to gridview for showing sets of flashcards made by the user
             // user can study, edit, delete the flashcards in these sets
             //WebRequest request = WebRequest.Create("https://cis-iis2.temple.edu/fall2020/CIS3342_tuh34847/webapitest/api/flashcards/getallsetsofflashcardsbyusername/" + username);
-            WebRequest request1 = WebRequest.Create("https://localhost:44355/api/flashcards/getallsetsofflashcardsbyusername/" + username);
-            WebResponse response1 = request1.GetResponse();
+            WebRequest request = WebRequest.Create("https://localhost:44355/api/flashcards/getallsetsofflashcardsbyusername/" + username);
+            WebResponse response = request.GetResponse();
 
             // Read the data from the Web Response, which requires working with streams.
-            Stream theDataStream1 = response1.GetResponseStream();
-            StreamReader reader1 = new StreamReader(theDataStream1);
-            String data1 = reader1.ReadToEnd();
+            Stream theDataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(theDataStream);
+            String data = reader.ReadToEnd();
 
-            reader1.Close();
-            response1.Close();
+            reader.Close();
+            response.Close();
 
             // Deserialize a JSON string that contains an array of JSON objects into an Array of flashcardset objects.
-            JavaScriptSerializer js1 = new JavaScriptSerializer();
-            FlashcardSetClass[] sets1 = js1.Deserialize<FlashcardSetClass[]>(data1);
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            FlashcardSetClass[] sets = js.Deserialize<FlashcardSetClass[]>(data);
 
-            gvMyFlashcardSets.DataSource = sets1;
+            gvMyFlashcardSets.DataSource = sets;
             gvMyFlashcardSets.DataBind();
         }
 
