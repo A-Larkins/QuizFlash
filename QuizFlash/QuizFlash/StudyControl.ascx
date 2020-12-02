@@ -2,7 +2,7 @@
 
 <div class="card text-center">
   <div class="card-header">
-      <asp:Label ID="lblSetName" runat="server" Text="Set Name" Font-Bold="True" Font-Size="XX-Large" OnDataBinding="lblSetName_DataBinding"></asp:Label>
+      <asp:Label ID="lblSetName" runat="server" Text="Set Name" Font-Bold="True" Font-Size="XX-Large" ></asp:Label>
   </div>
   <div class="card-body">
     <h5 class="card-title"><asp:Label ID="lblQuestion" runat="server" Font-Size="X-Large" Text="Question Question Question?"></asp:Label></h5>
