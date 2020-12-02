@@ -11,7 +11,7 @@ namespace QuizFlash
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack && Request.Cookies["SetNameCookie"] != null)
+            if(Request.Cookies["SetNameCookie"] != null)
             {
                 // get the set name that was stored
                 HttpCookie theSetNameCookie = Request.Cookies["SetNameCookie"];

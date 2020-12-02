@@ -102,6 +102,7 @@ namespace QuizFlash
         {
             // use a custom control for studying flashcards
             StudyControl.Visible = true;
+            
         }
 
         private void HideEverythingElse()
