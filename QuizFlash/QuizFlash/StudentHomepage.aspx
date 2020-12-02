@@ -1,5 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StudentHomepage.aspx.cs" Inherits="QuizFlash.StudentHomepage" %>
 
+<%@ Register Src="~/StudyControl.ascx" TagPrefix="uc1" TagName="StudyControl" %>
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -7,6 +10,7 @@
     <title>Student Homepage</title>
 
     <link rel="stylesheet" href="Styles/HomepageStyle.css" />
+    <link rel="stylesheet" href="Styles/StudyStyle.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
@@ -52,7 +56,7 @@
         </nav>
 
         <div class="d-flex justify-content-center">
-            <h1>My Flashcard Sets</h1>
+            <h1><asp:Label ID="lblMyFlashcardSets" runat="server" Text="My Flashcard Sets"></asp:Label></h1>
         </div>
         
         <div class="row justify-content-center">
@@ -75,7 +79,7 @@
         </div>
 
         <div class="d-flex justify-content-center">
-            <h1>All Flashcard Sets</h1>
+            <h1><asp:Label ID="lblAllFlashcardSets" runat="server" Text="All Flashcard Sets"></asp:Label></h1>
         </div>
         
         <div class="row justify-content-center">
@@ -93,6 +97,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="centered">
+            <uc1:StudyControl runat="server" id="StudyControl" />
         </div>
 
     </form>

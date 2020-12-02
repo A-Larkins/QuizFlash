@@ -78,8 +78,10 @@
     <Content Include="StudentClasses.aspx" />
     <Content Include="StudentCreateFlashcardSet.aspx" />
     <Content Include="StudentHomepage.aspx" />
+    <Content Include="StudyControl.ascx" />
     <Content Include="Styles\HomepageStyle.css" />
     <Content Include="Styles\LoginStyle.css" />
+    <Content Include="Styles\StudyStyle.css" />
     <Content Include="TeacherClasses.aspx" />
     <Content Include="TeacherCreate.aspx" />
     <Content Include="TeacherHomepage.aspx" />
@@ -135,6 +137,13 @@
     </Compile>
     <Compile Include="StudentHomepage.aspx.designer.cs">
       <DependentUpon>StudentHomepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudyControl.ascx.cs">
+      <DependentUpon>StudyControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudyControl.ascx.designer.cs">
+      <DependentUpon>StudyControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="TeacherClasses.aspx.cs">
       <DependentUpon>TeacherClasses.aspx</DependentUpon>

@@ -10,96 +10,69 @@
 namespace QuizFlash {
     
     
-    public partial class StudentHomepage {
+    public partial class StudyControl {
         
         /// <summary>
-        /// frmStudentHomepage control.
+        /// lblSetName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm frmStudentHomepage;
+        protected global::System.Web.UI.WebControls.Label lblSetName;
         
         /// <summary>
-        /// txtSearchSets control.
+        /// lblQuestion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSearchSets;
+        protected global::System.Web.UI.WebControls.Label lblQuestion;
         
         /// <summary>
-        /// btnSearchSets control.
+        /// lblAnswer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearchSets;
+        protected global::System.Web.UI.WebControls.Label lblAnswer;
         
         /// <summary>
-        /// lblUserName control.
+        /// btnShowAnswer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserName;
+        protected global::System.Web.UI.WebControls.Button btnShowAnswer;
         
         /// <summary>
-        /// btnLogout control.
+        /// btnRemove control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogout;
+        protected global::System.Web.UI.WebControls.Button btnRemove;
         
         /// <summary>
-        /// lblMyFlashcardSets control.
+        /// btnNext control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMyFlashcardSets;
+        protected global::System.Web.UI.WebControls.Button btnNext;
         
         /// <summary>
-        /// gvMyFlashcardSets control.
+        /// btnRelax control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvMyFlashcardSets;
-        
-        /// <summary>
-        /// lblAllFlashcardSets control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAllFlashcardSets;
-        
-        /// <summary>
-        /// gvAllFlashcardSets control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvAllFlashcardSets;
-        
-        /// <summary>
-        /// StudyControl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::QuizFlash.StudyControl StudyControl;
+        protected global::System.Web.UI.WebControls.Button btnRelax;
     }
 }
