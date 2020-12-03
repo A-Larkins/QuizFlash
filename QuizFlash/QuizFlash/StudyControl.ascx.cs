@@ -76,7 +76,21 @@ namespace QuizFlash
         {
             FlashcardList.Clear();
             Index = -1;
-            Response.Redirect("StudentHomepage.aspx");
+            String userType = Session["userType"].ToString();
+            if(userType == "Guest")
+            {
+                Response.Redirect("GuestHomepage.aspx");
+
+            }
+            else if(userType == "Teacher")
+            {
+                Response.Redirect("TeacherHomepage.aspx");
+
+            }
+            else if(userType == "Student")
+            {
+                Response.Redirect("StudentHomepage.aspx");
+            }
         }
 
         protected void btnShowAnswer_Click(object sender, EventArgs e)

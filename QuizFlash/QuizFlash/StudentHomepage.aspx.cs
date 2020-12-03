@@ -36,20 +36,30 @@ namespace QuizFlash
             WebRequest request = WebRequest.Create("https://localhost:44355/api/flashcards/getallsetsofflashcardsbyusername/" + username);
             WebResponse response = request.GetResponse();
 
-            // Read the data from the Web Response, which requires working with streams.
-            Stream theDataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(theDataStream);
-            String data = reader.ReadToEnd();
+            if (response.ContentLength == -1)
+            {
+                // no data in response
+                // don't bind gv
+                lblMyFlashcardSets.Text = "Click on create to make your own flashcard set!";
+            }
+            else
+            {
+                // Read the data from the Web Response, which requires working with streams.
+                Stream theDataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(theDataStream);
+                String data = reader.ReadToEnd();
 
-            reader.Close();
-            response.Close();
+                reader.Close();
+                response.Close();
 
-            // Deserialize a JSON string that contains an array of JSON objects into an Array of flashcardset objects.
-            JavaScriptSerializer js = new JavaScriptSerializer();
-            FlashcardSetClass[] sets = js.Deserialize<FlashcardSetClass[]>(data);
+                // Deserialize a JSON string that contains an array of JSON objects into an Array of flashcardset objects.
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                FlashcardSetClass[] sets = js.Deserialize<FlashcardSetClass[]>(data);
 
-            gvMyFlashcardSets.DataSource = sets;
-            gvMyFlashcardSets.DataBind();
+                gvMyFlashcardSets.DataSource = sets;
+                gvMyFlashcardSets.DataBind();
+            }
+            
         }
 
         private void BindGVAllSets()
@@ -126,5 +136,7 @@ namespace QuizFlash
             HideEverythingElse();
             ShowStudyControl();
         }
+
+
     } // end class
 } // end ns

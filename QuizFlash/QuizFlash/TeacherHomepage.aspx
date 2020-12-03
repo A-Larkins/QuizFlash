@@ -1,5 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TeacherHomepage.aspx.cs" Inherits="QuizFlash.TeacherHomepage" %>
 
+<%@ Register Src="~/StudyControl.ascx" TagPrefix="uc1" TagName="StudyControl" %>
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -7,6 +10,8 @@
     <title>Teacher Homepage</title>
 
     <link rel="stylesheet" href="Styles/HomepageStyle.css" />
+    <link rel="stylesheet" href="Styles/StudyStyle.css" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
@@ -22,7 +27,7 @@
     <form id="frmTeacherHomepage" runat="server">
         
         <nav class="navbar navbar-expand-lg" style="background-color: #8ec0e7; background: #8ec0e7;">
-            <a class="navbar-brand text-light" href="StudentHomepage.aspx">
+            <a class="navbar-brand text-light" href="TeacherHomepage.aspx">
                 <img src="/Images/QuizFlashLogo.png" alt="" /></a>
             
             <div class="collapse navbar-collapse">
@@ -50,42 +55,54 @@
             </div>
         </nav>
 
-        <div class="container-fluid">
-            <div class="d-flex justify-content-center">
-
-                <div class="row">
-                    <h1>My Flashcard Sets</h1>
+        <div class="d-flex justify-content-center">
+            <h1><asp:Label ID="lblMyFlashcardSets" runat="server" Text="My Flashcard Sets"></asp:Label></h1>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="table-responsive">
+                    <div class="table">
+                        <asp:GridView ID="gvMyFlashcardSets" UseAccessibleHeader="true" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" OnRowCommand="StudyFromMySets">
+                            <Columns>
+                                <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="NameOfFlashcardSet" HeaderText="Flashcard Set" />
+                                <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="SubjectOfFlashcardSet" HeaderText="Subject" />
+                                <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="UsernameOfFlashcardSet" HeaderText="Created By" />
+                                <asp:ButtonField HeaderStyle-BackColor="LightSeaGreen" ControlStyle-Width="75%" ControlStyle-CssClass="btn btn-primary" ItemStyle-HorizontalAlign="Center" ButtonType="Button" CommandName="Study" Text="Study" />  
+                                <asp:ButtonField HeaderStyle-BackColor="LightSeaGreen" ControlStyle-Width="75%" ControlStyle-CssClass="btn btn-primary" ItemStyle-HorizontalAlign="Center" ButtonType="Button" CommandName="Edit" Text="Edit" />   
+                                <asp:ButtonField HeaderStyle-BackColor="LightSeaGreen" ControlStyle-Width="75%" ControlStyle-CssClass="btn btn-primary" ItemStyle-HorizontalAlign="Center" ButtonType="Button" CommandName="Delete" Text="Delete" />   
+                            </Columns>
+                        </asp:GridView> 
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="container-fluid">
-            <div class="d-flex justify-content-center">
-                <div class="row">
-
-                    *Flashcard sets with edit and study buttons*
-
+        <div class="d-flex justify-content-center">
+            <h1><asp:Label ID="lblAllFlashcardSets" runat="server" Text="All Flashcard Sets"></asp:Label></h1>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="table-responsive">
+                    <div class="table">
+                        <asp:GridView ID="gvAllFlashcardSets" UseAccessibleHeader="true" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" OnRowCommand="StudyFromAllSets">
+                            <Columns>
+                                <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="NameOfFlashcardSet" HeaderText="Flashcard Set" />
+                                <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="SubjectOfFlashcardSet" HeaderText="Subject" />
+                                <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="UsernameOfFlashcardSet" HeaderText="Created By" />
+                                <asp:ButtonField HeaderStyle-BackColor="LightSeaGreen" ControlStyle-Width="75%" ControlStyle-CssClass="btn btn-primary" ItemStyle-HorizontalAlign="Center" ButtonType="Button" CommandName="Study" Text="Study" />   
+                            </Columns>
+                        </asp:GridView> 
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="container-fluid">
-            <div class="d-flex justify-content-center">
-                <div class="row">
-                    <h1>All Flashcard Sets</h1>
-                </div>
-            </div>
+        <div class="centered">
+            <uc1:StudyControl runat="server" ID="StudyControl" Visible="false" />
         </div>
 
-        <div class="container-fluid">
-            <div class="d-flex justify-content-center">
-                <div class="row">
-                    
-                    *Flashcard sets with study buttons displaying 20 at a time*
-
-                </div>
-            </div>
-        </div>
 
 
 
