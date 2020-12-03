@@ -14,18 +14,18 @@ namespace QuizFlash
 {
     public partial class StudentHomepage : System.Web.UI.Page
     {
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
-                StudyControl.Visible = false;
                 lblUserName.Text = Session["username"].ToString();
                 String username = lblUserName.Text;
 
                 BindGVMySets(username);
                 BindGVAllSets();
             }
+            
         }
 
         private void BindGVMySets(String username)
@@ -84,22 +84,9 @@ namespace QuizFlash
             Response.Redirect("LoginPage.aspx");
         }
 
-        // when study button event is fired from gridview
-        protected void Study(object sender, GridViewCommandEventArgs e)
-        {
-            int rowIndex = Convert.ToInt32(e.CommandArgument);
-            GridViewRow row = gvAllFlashcardSets.Rows[rowIndex];
-            String setName = row.Cells[0].Text;
-            HttpCookie setNameCookie = new HttpCookie("SetNameCookie");
-            setNameCookie.Values["SetName"] = setName;
-            Response.Cookies.Add(setNameCookie);
-
-            HideEverythingElse();
-            ShowStudyControl();
-        }
-
         private void ShowStudyControl()
         {
+            StudyControl.HasHomeButtonInNavBeenClickOn = true;
             // use a custom control for studying flashcards
             StudyControl.Visible = true;
             
@@ -113,9 +100,31 @@ namespace QuizFlash
             gvMyFlashcardSets.Visible = false;
         }
 
+        // when study button event is fired from my sets gridview
+        protected void StudyFromMySets(object sender, GridViewCommandEventArgs e)
+        {
+            int rowIndex = Convert.ToInt32(e.CommandArgument);
+            GridViewRow row = gvMyFlashcardSets.Rows[rowIndex];
+            String setName = row.Cells[0].Text;
 
+            Session["setName"] = setName;
 
+            HideEverythingElse();
+            ShowStudyControl();
+        }
 
+        // when study button event is fired from all sets gridview
+        protected void StudyFromAllSets(object sender, GridViewCommandEventArgs e)
+        {
+            // get selected row for flashcard set name
+            int rowIndex = Convert.ToInt32(e.CommandArgument);
+            GridViewRow row = gvAllFlashcardSets.Rows[rowIndex];
+            String setName = row.Cells[0].Text;
 
+            Session["setName"] = setName;
+
+            HideEverythingElse();
+            ShowStudyControl();
+        }
     } // end class
 } // end ns
