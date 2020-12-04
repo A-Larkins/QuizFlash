@@ -259,7 +259,7 @@ namespace FlashcardsWebAPI.Controllers
         }
 
         // delete entire set of flashcards
-        [HttpDelete("DeleteSetOfFlashcards")] // route: DELETE api/flashcards/deleteSetOfflashcard
+        [HttpDelete("DeleteSetOfFlashcards")] // route: DELETE api/flashcards/deleteSetOfflashcards
         public Boolean DeleteSetOfFlashcards([FromBody]Flashcard flashcard)
         {
             if (flashcard != null)

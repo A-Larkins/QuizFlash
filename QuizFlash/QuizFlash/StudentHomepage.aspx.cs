@@ -109,18 +109,39 @@ namespace QuizFlash
             gvAllFlashcardSets.Visible = false;
             gvMyFlashcardSets.Visible = false;
         }
-
-        // when study button event is fired from my sets gridview
-        protected void StudyFromMySets(object sender, GridViewCommandEventArgs e)
+        
+        private void DeleteRow(String setName)
         {
-            int rowIndex = Convert.ToInt32(e.CommandArgument);
-            GridViewRow row = gvMyFlashcardSets.Rows[rowIndex];
-            String setName = row.Cells[0].Text;
+            FlashcardClass flashcard = new FlashcardClass();
+            flashcard.FlashcardSet = setName;
+            // Serialize a list of flashcards into a JSON string.
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            String jsonFlashcards = js.Serialize(flashcard);
+            try
+            {
+                // Setup an HTTP POST Web Request and get the HTTP Web Response from the server.
+                WebRequest request = WebRequest.Create("https://localhost:44355/api/flashcards/deletesetofflashcards");
+                request.Method = "DELETE";
+                request.ContentLength = jsonFlashcards.Length;
+                request.ContentType = "application/json";
 
-            Session["setName"] = setName;
+                // Write the JSON data to the Web Request
+                StreamWriter writer = new StreamWriter(request.GetRequestStream());
+                writer.Write(jsonFlashcards);
+                writer.Flush();
+                writer.Close();
 
-            HideEverythingElse();
-            ShowStudyControl();
+                WebResponse response = request.GetResponse();
+                Stream theDataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(theDataStream);
+                String data = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
         // when study button event is fired from all sets gridview
@@ -137,6 +158,40 @@ namespace QuizFlash
             ShowStudyControl();
         }
 
+        
 
+        protected void ButtonFireFromMySets(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Study")
+            {
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+                GridViewRow row = gvMyFlashcardSets.Rows[rowIndex];
+                String setName = row.Cells[0].Text;
+
+                Session["setName"] = setName;
+
+                HideEverythingElse();
+                ShowStudyControl();
+            }
+            else if (e.CommandName == "Edit")
+            {
+
+            }
+            else if (e.CommandName == "Delete")
+            {
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+                GridViewRow row = gvMyFlashcardSets.Rows[rowIndex];
+                String setName = row.Cells[0].Text;
+
+                DeleteRow(setName);
+            }
+        }
+
+        protected void gvMyFlashcardSets_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            // rebind gv my sets
+            String username = lblUserName.Text;
+            BindGVMySets(username);
+        }
     } // end class
 } // end ns
