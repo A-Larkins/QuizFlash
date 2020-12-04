@@ -71,6 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="EditFlashcardSet.aspx" />
     <Content Include="GuestHomepage.aspx" />
     <Content Include="LoginControl.ascx" />
     <Content Include="LoginPage.aspx" />
@@ -88,6 +89,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditFlashcardSet.aspx.cs">
+      <DependentUpon>EditFlashcardSet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditFlashcardSet.aspx.designer.cs">
+      <DependentUpon>EditFlashcardSet.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GuestHomepage.aspx.cs">
       <DependentUpon>GuestHomepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
