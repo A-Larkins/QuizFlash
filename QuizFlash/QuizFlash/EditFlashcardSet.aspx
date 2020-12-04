@@ -83,7 +83,7 @@
         </table>
 
         <div class="container">
-            <asp:Button ID="btnEdit" CssClass="btn btn-primary" runat="server" Text="Edit" />
+            <asp:Button ID="btnEdit" CssClass="btn btn-primary" runat="server" Text="Edit" OnClick="btnEdit_Click" />
         </div>
 
     </form>
