@@ -186,7 +186,6 @@ namespace FlashcardsWebAPI.Controllers
                 sqlCmd.Parameters.Clear();
                 sqlCmd.CommandText = "TP_CreateNewFlashcard";
                 sqlCmd.CommandType = CommandType.StoredProcedure;
-                sqlCmd.Parameters.AddWithValue("@FlashcardID", flashcard.FlashcardID);
                 sqlCmd.Parameters.AddWithValue("@FlashcardSet", flashcard.FlashcardSet);
                 sqlCmd.Parameters.AddWithValue("@FlashcardSubject", flashcard.FlashcardSubject);
                 sqlCmd.Parameters.AddWithValue("@FlashcardQuestion", flashcard.FlashcardQuestion);
