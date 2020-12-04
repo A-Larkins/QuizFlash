@@ -36,19 +36,19 @@ namespace QuizFlash
             WebRequest request = WebRequest.Create("https://localhost:44355/api/flashcards/getallsetsofflashcardsbyusername/" + username);
             WebResponse response = request.GetResponse();
 
-            if (response.ContentLength == -1)
+            
+            // Read the data from the Web Response, which requires working with streams.
+            Stream theDataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(theDataStream);
+            String data = reader.ReadToEnd();
+            
+            if(data == "")
             {
-                // no data in response
-                // don't bind gv
                 lblMyFlashcardSets.Text = "Click on create to make your own flashcard set!";
+
             }
             else
             {
-                // Read the data from the Web Response, which requires working with streams.
-                Stream theDataStream = response.GetResponseStream();
-                StreamReader reader = new StreamReader(theDataStream);
-                String data = reader.ReadToEnd();
-
                 reader.Close();
                 response.Close();
 

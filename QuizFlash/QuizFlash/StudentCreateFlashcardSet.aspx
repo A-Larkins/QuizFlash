@@ -7,7 +7,7 @@
     <title>Create Flashcard Set</title>
 
     
-    <link rel="stylesheet" href="master.css" />
+    <link rel="stylesheet" href="Styles/StudyStyle.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
@@ -40,11 +40,22 @@
             </div>
         </nav>
 
-        <div class="container-fluid">
-            <div class="d-flex justify-content-center">
-                <div class="row">
+        <div class="centered">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h1>Create A Flashcard Set</h1>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Flashcard Set Name: &nbsp <asp:TextBox ID="txtFlashcardSetName" Width="200px" CssClass="card-text" runat="server"></asp:TextBox></h5>
+                    <h5 class="card-title">Flashcard Set Subject: &nbsp <asp:TextBox ID="txtFlashcardSetSubject" Width="200px" CssClass="card-text" runat="server"></asp:TextBox></h5>
+                    <p class="card-text">Flashcard Question: &nbsp <asp:TextBox ID="txtFlashcardQuestion" CssClass="card-text" Width="200px" runat="server"></asp:TextBox></p>
+                    <p class="card-text">Flashcard Answer: &nbsp <asp:TextBox ID="txtFlashcardAnswer" CssClass="card-text" runat="server" Width="200px"></asp:TextBox></p>
+                    <p class="card-text">Flashcard Image: &nbsp <asp:TextBox ID="txtImage" CssClass="card-text" Width="200px" runat="server"></asp:TextBox></p>
+                    <p class="card-text"><asp:Label ID="lblError" runat="server" Visible="false" CssClass="text-danger" Text="Error"></asp:Label></p>
 
-                    *Form for creating a set of flashcards*
+                    <asp:Button ID="btnAddFlashcard" runat="server" class="btn btn-primary" Text="Add Flashcard" OnClick="btnAddFlashcard_Click" />
+                    &nbsp;
+                    <asp:Button ID="btnAddFlashcardSet" runat="server" class="btn btn-primary" Text="Add Flashcard Set" OnClick="btnAddFlashcardSet_Click" />
 
                 </div>
             </div>
