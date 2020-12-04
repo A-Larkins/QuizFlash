@@ -63,7 +63,7 @@
             <div class="col-8">
                 <div class="table-responsive">
                     <div class="table">
-                        <asp:GridView ID="gvMyFlashcardSets" UseAccessibleHeader="true" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" OnRowCommand="StudyFromMySets">
+                        <asp:GridView ID="gvMyFlashcardSets" UseAccessibleHeader="true" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" OnRowCommand="ButtonFireFromMySets" OnRowDeleting="gvMyFlashcardSets_RowDeleting">
                             <Columns>
                                 <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="NameOfFlashcardSet" HeaderText="Flashcard Set" />
                                 <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="SubjectOfFlashcardSet" HeaderText="Subject" />
