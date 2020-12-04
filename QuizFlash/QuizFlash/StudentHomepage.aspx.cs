@@ -175,7 +175,12 @@ namespace QuizFlash
             }
             else if (e.CommandName == "Edit")
             {
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+                GridViewRow row = gvMyFlashcardSets.Rows[rowIndex];
+                String setName = row.Cells[0].Text;
 
+                Session["setName"] = setName;
+                Response.Redirect("EditFlashcardSet.aspx");
             }
             else if (e.CommandName == "Delete")
             {
