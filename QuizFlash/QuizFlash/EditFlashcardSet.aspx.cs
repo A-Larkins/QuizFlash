@@ -23,9 +23,7 @@ namespace QuizFlash
                 
             }
         }
-
         
-
         private void GetFlashcardsForSet(String setName)
         {
             List<FlashcardClass> set = new List<FlashcardClass>();
@@ -62,5 +60,16 @@ namespace QuizFlash
             Session["username"] = "";
             Response.Redirect("LoginPage.aspx");
         }
-    }
-}
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            // delete flashcard set
+
+            // check that input is valid and then re-insert data
+
+
+        }
+
+
+    } // end class
+} // end ns
