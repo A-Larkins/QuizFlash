@@ -156,6 +156,33 @@ namespace FlashcardsWebAPI.Controllers
             return flashcard.FlashcardSubject.ToString();
         }
 
+        // Search everything 
+        // route: api/flashcards/search/rock trivia
+        [HttpGet("Search/{search}")]
+        public List<FlashcardSet> Search(String search)
+        {
+            DBConnect db = new DBConnect();
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "TP_Search";
+            sqlCmd.Parameters.AddWithValue("Search", search);
+
+            DataSet ds = db.GetDataSetUsingCmdObj(sqlCmd);
+
+            List<FlashcardSet> set = new List<FlashcardSet>();
+            FlashcardSet flashcardSet;
+
+            foreach (DataRow record in ds.Tables[0].Rows)
+            {
+                flashcardSet = new FlashcardSet();
+                flashcardSet.NameOfFlashcardSet = record["Flashcard_Set"].ToString();
+                flashcardSet.SubjectOfFlashcardSet = record["Subject"].ToString();
+                flashcardSet.UsernameOfFlashcardSet = record["Username"].ToString();
+                set.Add(flashcardSet);
+            }
+            return set;
+        }
+
 
         // test
         [HttpPost()] // route: POST api/flashcards
