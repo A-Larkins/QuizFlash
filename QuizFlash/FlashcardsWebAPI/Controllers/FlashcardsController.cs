@@ -134,6 +134,28 @@ namespace FlashcardsWebAPI.Controllers
             return set;
         }
 
+        [HttpGet("GetSubjectBySet/{setName}")] // route: api/flashcards/getsubjectbyset/rock trivia
+        public String GetSubjectBySet(String setName)
+        {
+            DBConnect db = new DBConnect();
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "TP_GetFlashcardSubjectBySet";
+            sqlCmd.Parameters.AddWithValue("Set", setName);
+
+            DataSet ds = db.GetDataSetUsingCmdObj(sqlCmd);
+            DataRow record;
+            Flashcard flashcard = new Flashcard();
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                record = ds.Tables[0].Rows[0];
+                flashcard.FlashcardSubject = record["Subject"].ToString();
+                
+            }
+            return flashcard.FlashcardSubject.ToString();
+        }
+
 
         // test
         [HttpPost()] // route: POST api/flashcards
