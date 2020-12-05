@@ -50,7 +50,7 @@ namespace QuizFlash
             if (data == "" || data == "[]")
             {
                 lblMyFlashcardSets.Text = "Click on create to make your own flashcard set!";
-
+                gvMyFlashcardSets.Visible = false;
             }
             else
             {
@@ -170,13 +170,7 @@ namespace QuizFlash
 
             }
         }
-
-        protected void gvAllFlashcardSets_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            // rebind gv my sets
-            String username = lblUserName.Text;
-            BindGVMySets(username);
-        }
+        
 
         protected void ButtonFireFromMySets(object sender, GridViewCommandEventArgs e)
         {
