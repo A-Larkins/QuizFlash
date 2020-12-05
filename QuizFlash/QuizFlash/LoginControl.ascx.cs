@@ -26,9 +26,15 @@ namespace QuizFlash
                 String textPassword = encrypt.DoDecryption(passwordEncrypted);
                 txtPassword.Text = textPassword;
             }
+            
         }
 
-      
+        private void ClearBoxes()
+        {
+            txtUsername.Text = "";
+            txtPassword.Text = "";
+
+        }
 
         private User GetUserLogin(String username, String userType)
         {
@@ -142,5 +148,7 @@ namespace QuizFlash
 
 
         }
-    }
-}
+
+        
+    } // end class
+}// end ns
