@@ -182,7 +182,7 @@ namespace QuizFlash
                 FlashcardList.Add(flashcard);
             }
 
-
+            flashcardImage.ImageUrl= FlashcardList[Index].FlashcardImage.ToString();
             lblQuestion.Text = FlashcardList[Index].FlashcardQuestion.ToString();
             lblAnswer.Text = FlashcardList[Index].FlashcardAnswer.ToString();
         }

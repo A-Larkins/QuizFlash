@@ -4,6 +4,8 @@
   <div class="card-header">
       <asp:Label ID="lblSetName" runat="server" Text="Set Name" Font-Bold="True" Font-Size="XX-Large" ></asp:Label>
   </div>
+
+  <asp:Image ID="flashcardImage" CssClass="card-image-top" runat="server" />
   <div class="card-body">
     <h5 class="card-title"><asp:Label ID="lblQuestion" runat="server" Font-Size="X-Large" Text="Question Question Question?"></asp:Label></h5>
     
