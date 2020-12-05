@@ -56,7 +56,7 @@
         </nav>
 
         <div class="d-flex justify-content-center">
-            <h1><asp:Label ID="lblMyFlashcardSets" runat="server" Text="My Flashcard Sets"></asp:Label></h1>
+            <h1><asp:Label ID="lblMyFlashcardSets" runat="server" Text="Click on create to make your own flashcard set!"></asp:Label></h1>
         </div>
         
         <div class="row justify-content-center">

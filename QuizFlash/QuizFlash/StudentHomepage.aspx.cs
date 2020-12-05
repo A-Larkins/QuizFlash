@@ -42,13 +42,14 @@ namespace QuizFlash
             StreamReader reader = new StreamReader(theDataStream);
             String data = reader.ReadToEnd();
             
-            if(data == "")
+            if(data == "" || data == "[]")
             {
                 lblMyFlashcardSets.Text = "Click on create to make your own flashcard set!";
 
             }
             else
             {
+                lblMyFlashcardSets.Text = "My Flashcard Sets";
                 reader.Close();
                 response.Close();
 

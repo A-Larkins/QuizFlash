@@ -17,11 +17,15 @@ namespace QuizFlash
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblUserName.Text = Session["username"].ToString();
-            String username = lblUserName.Text;
+            if (!IsPostBack)
+            {
+                lblUserName.Text = Session["username"].ToString();
+                String username = lblUserName.Text;
 
-            BindGVMySets(username);
-            BindGVAllSets();
+                BindGVMySets(username);
+                BindGVAllSets();
+            }
+
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
@@ -37,20 +41,20 @@ namespace QuizFlash
             //WebRequest request = WebRequest.Create("https://cis-iis2.temple.edu/fall2020/CIS3342_tuh34847/webapitest/api/flashcards/getallsetsofflashcardsbyusername/" + username);
             WebRequest request = WebRequest.Create("https://localhost:44355/api/flashcards/getallsetsofflashcardsbyusername/" + username);
             WebResponse response = request.GetResponse();
-           
-            if (response.ContentLength == -1)
+
+            // Read the data from the Web Response, which requires working with streams.
+            Stream theDataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(theDataStream);
+            String data = reader.ReadToEnd();
+
+            if (data == "" || data == "[]")
             {
-                // no data in response
-                // don't bind gv
                 lblMyFlashcardSets.Text = "Click on create to make your own flashcard set!";
+
             }
             else
             {
-                // Read the data from the Web Response, which requires working with streams.
-                Stream theDataStream = response.GetResponseStream();
-                StreamReader reader = new StreamReader(theDataStream);
-                String data = reader.ReadToEnd();
-
+                lblMyFlashcardSets.Text = "My Flashcard Sets";
                 reader.Close();
                 response.Close();
 
@@ -61,7 +65,7 @@ namespace QuizFlash
                 gvMyFlashcardSets.DataSource = sets;
                 gvMyFlashcardSets.DataBind();
             }
-            
+
         }
 
         private void BindGVAllSets()
@@ -133,7 +137,85 @@ namespace QuizFlash
             ShowStudyControl();
         }
 
+        private void DeleteRow(String setName)
+        {
+            FlashcardClass flashcard = new FlashcardClass();
+            flashcard.FlashcardSet = setName;
+            // Serialize a list of flashcards into a JSON string.
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            String jsonFlashcards = js.Serialize(flashcard);
+            try
+            {
+                // Setup an HTTP POST Web Request and get the HTTP Web Response from the server.
+                WebRequest request = WebRequest.Create("https://localhost:44355/api/flashcards/deletesetofflashcards");
+                request.Method = "DELETE";
+                request.ContentLength = jsonFlashcards.Length;
+                request.ContentType = "application/json";
 
+                // Write the JSON data to the Web Request
+                StreamWriter writer = new StreamWriter(request.GetRequestStream());
+                writer.Write(jsonFlashcards);
+                writer.Flush();
+                writer.Close();
+
+                WebResponse response = request.GetResponse();
+                Stream theDataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(theDataStream);
+                String data = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        protected void gvAllFlashcardSets_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            // rebind gv my sets
+            String username = lblUserName.Text;
+            BindGVMySets(username);
+        }
+
+        protected void ButtonFireFromMySets(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Study")
+            {
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+                GridViewRow row = gvMyFlashcardSets.Rows[rowIndex];
+                String setName = row.Cells[0].Text;
+
+                Session["setName"] = setName;
+
+                HideEverythingElse();
+                ShowStudyControl();
+            }
+            else if (e.CommandName == "Edit")
+            {
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+                GridViewRow row = gvMyFlashcardSets.Rows[rowIndex];
+                String setName = row.Cells[0].Text;
+
+                Session["setName"] = setName;
+                Response.Redirect("EditFlashcardSet.aspx");
+            }
+            else if (e.CommandName == "Delete")
+            {
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+                GridViewRow row = gvMyFlashcardSets.Rows[rowIndex];
+                String setName = row.Cells[0].Text;
+
+                DeleteRow(setName);
+            }
+        }
+
+        protected void gvMyFlashcardSets_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            // rebind gv my sets
+            String username = lblUserName.Text;
+            BindGVMySets(username);
+        }
     } //class
 } // ns
 
