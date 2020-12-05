@@ -210,7 +210,8 @@ namespace QuizFlash
             }
         }
 
-        protected void gvMyFlashcardSets_RowDeleting(object sender, GridViewDeleteEventArgs e)
+
+        protected void gvMyFlashcardSets_RowDeleting1(object sender, GridViewDeleteEventArgs e)
         {
             // rebind gv my sets
             String username = lblUserName.Text;
