@@ -35,7 +35,7 @@
                     <li class="nav-item mx-1">
                         <asp:TextBox ID="txtSearchSets" Text="Search..." CssClass="form-control" Width="200px" runat="server"></asp:TextBox>
                     </li>
-                    <li>
+                    <li>    
                         <asp:Button ID="btnSearchSets" runat="server" Text="Search" CssClass="btn btn-info" OnClick="btnSearchSets_Click" />
                         &nbsp; &nbsp; &nbsp;
                     </li>
