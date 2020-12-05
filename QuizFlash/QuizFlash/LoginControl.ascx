@@ -15,7 +15,7 @@
                 <asp:ListItem>Teacher</asp:ListItem>
             </asp:DropDownList>
         </div>
-        <div class="form-group">
+        <div class="form-group">    
             <asp:Label ID="lblUsername" style="border-width:2px; border-color:#ffa74a" CssClass="form-control" runat="server" Text="Username" Font-Bold="True" Font-Size="Large"></asp:Label>
             <asp:TextBox ID="txtUsername" style="border-width:2px; border-color:lightseagreen" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
