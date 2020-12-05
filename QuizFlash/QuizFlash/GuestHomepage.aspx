@@ -33,10 +33,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item mx-1">
-                        <asp:TextBox ID="txtSearchSets" CssClass="form-control" Width="200px" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtSearchSets" CssClass="form-control" Width="200px" Text="Search..." runat="server" ></asp:TextBox>
                     </li>
                     <li>
-                        <asp:Button ID="btnSearchSets" runat="server" Text="Search" CssClass="btn btn-info" />
+                        <asp:Button ID="btnSearchSets" runat="server" Text="Search" CssClass="btn btn-info" OnClick="btnSearchSets_Click" />
                     </li>
                 </ul>
                 <div class="form-inline my-2 my-lg-0">

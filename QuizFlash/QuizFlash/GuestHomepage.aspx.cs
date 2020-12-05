@@ -17,7 +17,11 @@ namespace QuizFlash
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindGVAllSets();
+            if(!IsPostBack)
+            {
+                BindGVAllSets();
+
+            }
         }
 
         protected void btnCreateAnAccount_Click(object sender, EventArgs e)
@@ -78,6 +82,52 @@ namespace QuizFlash
             HideEverythingElse();
             ShowStudyControl();
         }
+
+        protected void btnSearchSets_Click(object sender, EventArgs e)
+        {
+            String search = txtSearchSets.Text;
+            if (search == "")
+            {
+                // do nothing
+            }
+            else
+            {
+                BindGVSearched(search);
+            }
+        }
+        private void BindGVSearched(String search)
+        {
+            // Bind to gridview for showing sets of flashcards searched
+            WebRequest request = WebRequest.Create("https://localhost:44355/api/flashcards/search/" + search);
+            WebResponse response = request.GetResponse();
+
+            // Read the data from the Web Response, which requires working with streams.
+            Stream theDataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(theDataStream);
+            String data = reader.ReadToEnd();
+
+            if (data == "" || data == "[]")
+            {
+                lblAllFlashcardSets.Text = "Can't find that...";
+                gvAllFlashcardSets.Visible = false;
+            }
+            else
+            {
+                lblAllFlashcardSets.Text = "Results for search: " + search;
+                reader.Close();
+                response.Close();
+
+                // Deserialize a JSON string that contains an array of JSON objects into an Array of flashcardset objects.
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                FlashcardSetClass[] sets = js.Deserialize<FlashcardSetClass[]>(data);
+
+                gvAllFlashcardSets.DataSource = sets;
+                gvAllFlashcardSets.DataBind();
+                gvAllFlashcardSets.Visible = true;
+            }
+        }
+
+
 
     } // class
 } // end ns
