@@ -56,14 +56,14 @@
         </nav>
 
         <div class="d-flex justify-content-center">
-            <h1><asp:Label ID="lblMyFlashcardSets" runat="server" Text="My Flashcard Sets"></asp:Label></h1>
+            <h1><asp:Label ID="lblMyFlashcardSets" runat="server" Text="Click on create to make your own flashcard set!"></asp:Label></h1>
         </div>
         
         <div class="row justify-content-center">
             <div class="col-8">
                 <div class="table-responsive">
                     <div class="table">
-                        <asp:GridView ID="gvMyFlashcardSets" UseAccessibleHeader="true" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" OnRowCommand="StudyFromMySets">
+                        <asp:GridView ID="gvMyFlashcardSets" UseAccessibleHeader="true" CssClass="table table-striped" runat="server" AutoGenerateColumns="False"  OnRowCommand="ButtonFireFromMySets" >
                             <Columns>
                                 <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="NameOfFlashcardSet" HeaderText="Flashcard Set" />
                                 <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="SubjectOfFlashcardSet" HeaderText="Subject" />
