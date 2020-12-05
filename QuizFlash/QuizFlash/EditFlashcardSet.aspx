@@ -19,6 +19,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 
+    <style type="text/css">
+        .auto-style1 {
+            height: 26px;
+        }
+    </style>
+
+
 </head>
 <body>
     <form id="frmEditFlashcardSet" runat="server">
@@ -44,48 +51,54 @@
         <h1><asp:Label ID="lblEditFlashcardSets" runat="server" Text="Edit Flashcard Set"></asp:Label></h1>
     </div>
 
-        
-        <table>
-            <tr>
-                <th>Flashcard Set</th>
-                <th>Subject</th>
-                <th>Question</th>
-                <th>Answer</th>
-                <th>Image</th>
-                <th>Username</th>
-            </tr>
-
-            <asp:Repeater ID="rptEdit" runat="server">
-                <ItemTemplate>
+        <div class="card">
+            <div class="card-body">
+                <table style="Width:100%">
                     <tr>
-                        <td>
-                            <asp:Label ID="lblSetName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "FlashcardSet") %>'></asp:Label>
-                        </td>
-                        <td>
-                            <asp:Label ID="lblSubject" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "FlashcardSubject") %>'></asp:Label>
-                        </td>
-                        <td>
-                            <asp:TextBox ID="txtQuestion" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "FlashcardQuestion") %>'></asp:TextBox>
-                        </td>
-                        <td>
-                            <asp:TextBox ID="txtAnswer" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "FlashcardAnswer") %>'></asp:TextBox>
-                        </td>
-                        <td>
-                            <asp:TextBox ID="txtImage" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "FlashcardImage") %>'></asp:TextBox>
-                        </td>
-                        <td>
-                            <asp:Label ID="lblUsername" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "FlashcardUsername") %>'></asp:Label>
-                        </td>
-                    </tr>
-                </ItemTemplate>
+                        <th style="width:12%">Flashcard Set</th>
+                        <th style="width:8%">Subject</th>
+                        <th style="width:30%">Question</th>
+                        <th style="width:30%">Answer</th>
+                        <th style="width:12%">Image Url</th>
+                        <th style="width:8%">Username</th>
+                   </tr>
+            
 
-            </asp:Repeater>
-        </table>
+                    <asp:Repeater ID="rptEdit" runat="server">
+                        <ItemTemplate>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="lblSetName" runat="server" Width="100%" Text='<%# DataBinder.Eval(Container.DataItem, "FlashcardSet") %>'></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label ID="lblSubject" runat="server" Width="100%" Text='<%# DataBinder.Eval(Container.DataItem, "FlashcardSubject") %>'></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txtQuestion" TextMode="MultiLine" Rows="4" Width="100%" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "FlashcardQuestion") %>'></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txtAnswer" TextMode="MultiLine" Rows="4" Width="100%"  runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "FlashcardAnswer") %>'></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txtImage" TextMode="MultiLine" Rows="4" Width="100%"  runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "FlashcardImage") %>'></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:Label ID="lblUsername" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "FlashcardUsername") %>'></asp:Label>
+                                </td>
+                            </tr>
+                        </ItemTemplate>
+                    </asp:Repeater>
 
-        <div class="container">
-            <asp:Button ID="btnEdit" CssClass="btn btn-primary" runat="server" Text="Edit" OnClick="btnEdit_Click" />
-        </div>
+                </table>
+            </div>
+            <div class="d-flex justify-content-center">
+                <asp:Label ID="lblMessage" Visible="false" runat="server" CssClass="alert-danger" Text="Message"></asp:Label>
+            
+                <asp:Button ID="btnEdit" CssClass="btn btn-primary" Width="200px"  runat="server" Text="Edit" OnClick="btnEdit_Click" />
 
+            </div>
+                
+       </div>
     </form>
 
 
