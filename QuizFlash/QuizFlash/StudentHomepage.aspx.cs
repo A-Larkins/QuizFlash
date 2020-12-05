@@ -45,7 +45,7 @@ namespace QuizFlash
             if(data == "" || data == "[]")
             {
                 lblMyFlashcardSets.Text = "Click on create to make your own flashcard set!";
-
+                gvMyFlashcardSets.Visible = false;
             }
             else
             {
