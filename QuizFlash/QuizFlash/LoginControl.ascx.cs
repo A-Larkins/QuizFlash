@@ -11,7 +11,7 @@ namespace QuizFlash
     public partial class LoginControl : System.Web.UI.UserControl
     {
         // classes in utilities class library
-        // used for component based design
+        // objs used for component based design
         LoginClass login = new LoginClass();
         Encrypt encrypt = new Encrypt();
 
@@ -42,7 +42,7 @@ namespace QuizFlash
             return user;
         }
 
-
+        // checks that input is a valid user in db
         private bool ValidLogin()
         {
             lblErrorMessage.Text = "";
@@ -56,12 +56,16 @@ namespace QuizFlash
             {
                 lblErrorMessage.Visible = true;
                 lblErrorMessage.Text = "Error - Username";
+                lblForgotPassword.Visible = true;
+                btnRecover.Visible = true;
                 ret = false;
             }
             if (String.IsNullOrWhiteSpace(password))
             {
                 lblErrorMessage.Visible = true;
                 lblErrorMessage.Text = "Error - Password";
+                lblForgotPassword.Visible = true;
+                btnRecover.Visible = true;
                 ret = false;
             }
             if (!String.IsNullOrWhiteSpace(username) && !String.IsNullOrWhiteSpace(password))
@@ -71,15 +75,19 @@ namespace QuizFlash
                 {
                     lblErrorMessage.Visible = true;
                     lblErrorMessage.Text = "Cannot find username";
+                    lblForgotPassword.Visible = true;
+                    btnRecover.Visible = true;
                     ret = false;
                 }
                 else
                 {
-                    String passwordEncrypted = encrypt.EncryptPassword(password);
+                    String passwordEncrypted = encrypt.DoEncryption(password);
                     if (!String.Equals(passwordEncrypted, objUser.Password))
                     {
                         lblErrorMessage.Visible = true;
                         lblErrorMessage.Text = "Incorrect password...";
+                        lblForgotPassword.Visible = true;
+                        btnRecover.Visible = true;
                         ret = false;
                     }
                 }
@@ -87,11 +95,13 @@ namespace QuizFlash
             return ret;
         }
 
+        // sign up form
         protected void Register_Click(object sender, EventArgs e)
         {
             Response.Redirect("Registration.aspx");
         }
 
+        // enter so user can only study community flashcards
         protected void btnGuest_Click(object sender, EventArgs e)
         {
             Session["username"] = "";
@@ -99,6 +109,9 @@ namespace QuizFlash
             Response.Redirect("GuestHomepage.aspx");
         }
 
+        // login event handler gets data from input
+        // throws valid data in obj User
+        // runs students or teach homepage
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -112,6 +125,8 @@ namespace QuizFlash
                 {
                     lblErrorMessage.Visible = true;
                     lblErrorMessage.Text = "Cound not login";
+                    lblForgotPassword.Visible = true;
+                    btnRecover.Visible = true;
                     return;
                 }
                 User objUser = GetUserLogin(username, userType);
@@ -121,7 +136,6 @@ namespace QuizFlash
                 Session["userType"] = objUser.UserType;
 
                 // remember me option creates a user cookie so user can
-                // skip login page upon re-entry.
                 if (chkRememberMe.Checked)
                 {
                     String encryptedPassword = encrypt.DoEncryption(password);
@@ -149,6 +163,14 @@ namespace QuizFlash
 
         }
 
+        // load page to answer security questions
         
+        protected void btnRecover_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RecoverAccountPage.aspx");
+        }
+
+
+
     } // end class
 }// end ns

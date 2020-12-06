@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection.cs" />
+    <Compile Include="Email.cs" />
     <Compile Include="Encrypt.cs" />
     <Compile Include="FlashcardClass.cs" />
     <Compile Include="FlashcardSetClass.cs" />

@@ -42,6 +42,8 @@ namespace QuizFlash
                         if (ret == 1)
                         {
                             Response.Redirect("LoginPage.aspx");
+
+                            
                         }
                         else
                         {
@@ -100,7 +102,7 @@ namespace QuizFlash
             }
             if (!String.IsNullOrWhiteSpace(txtPassword.Text))
             {
-                String passwordEncrypted = encrypt.EncryptPassword(txtPassword.Text);
+                String passwordEncrypted = encrypt.DoEncryption(txtPassword.Text);
                 user.Password = passwordEncrypted;
             }
             if(!String.IsNullOrWhiteSpace(txtFirstName.Text))

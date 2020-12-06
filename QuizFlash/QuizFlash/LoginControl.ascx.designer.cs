@@ -103,6 +103,24 @@ namespace QuizFlash {
         protected global::System.Web.UI.WebControls.Label lblErrorMessage;
         
         /// <summary>
+        /// lblForgotPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblForgotPassword;
+        
+        /// <summary>
+        /// btnRecover control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRecover;
+        
+        /// <summary>
         /// btnRegister control.
         /// </summary>
         /// <remarks>
