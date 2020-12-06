@@ -7,6 +7,10 @@
 
 body {
    background-color: #a3ffac;
+   margin:auto;
 }
 
 
+.centeredReg {
+    position: absolute;
+}
