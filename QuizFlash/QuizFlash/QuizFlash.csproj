@@ -75,6 +75,7 @@
     <Content Include="GuestHomepage.aspx" />
     <Content Include="LoginControl.ascx" />
     <Content Include="LoginPage.aspx" />
+    <Content Include="RecoverAccountPage.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="StudentClasses.aspx" />
     <Content Include="StudentCreateFlashcardSet.aspx" />
@@ -118,6 +119,13 @@
       <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecoverAccountPage.aspx.cs">
+      <DependentUpon>RecoverAccountPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecoverAccountPage.aspx.designer.cs">
+      <DependentUpon>RecoverAccountPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -36,7 +36,7 @@
             <a class="navbar-brand text-light">
                 <img src="/Images/QuizFlashLogo.png" alt="" />
             </a>
-        </nav>
+    </nav>
 
     <form id="frmLogin" runat="server">
 

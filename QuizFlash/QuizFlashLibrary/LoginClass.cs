@@ -119,6 +119,138 @@ namespace QuizFlashLibrary
             return db.DoUpdateUsingCmdObj(objCommand);
         }
 
+        public Boolean AccountExistsInStudents(String email)
+        {
+            Boolean ret = false;
+
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_AccountExistsInStudents";
+            SqlParameter inputParameter = new SqlParameter("@Email", email);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.VarChar;
+            inputParameter.Size = 50;
+            objCommand.Parameters.Add(inputParameter);
+            
+            DataSet ds = db.GetDataSetUsingCmdObj(objCommand);
+            
+            if(ds.Tables[0].Rows.Count == 0)
+            {
+                ret = false;
+            }
+            else
+            {
+
+                DataRow row = ds.Tables[0].Rows[0];
+                String username = row["Username"].ToString();
+
+                if (username != "" || username != null)
+                {
+                    ret = true;
+                }
+            }
+            
+            return ret;
+        }
+
+        public Boolean AccountExistsInTeachers(String email)
+        {
+            Boolean ret = false;
+
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_AccountExistsInTeachers";
+            SqlParameter inputParameter = new SqlParameter("@Email", email);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.VarChar;
+            inputParameter.Size = 50;
+            objCommand.Parameters.Add(inputParameter);
+
+            DataSet ds = db.GetDataSetUsingCmdObj(objCommand);
+
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                ret = false;
+            }
+            else
+            {
+
+                DataRow row = ds.Tables[0].Rows[0];
+                String username = row["Username"].ToString();
+
+                if (username != "" || username != null)
+                {
+                    ret = true;
+                }
+            }
+
+            return ret;
+        }
+
+        public User GetQuestionsAndAnswersForStudent(String email)
+        {
+            User user = new User();
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetQuestionsAndAnswersForStudent";
+
+            SqlParameter inputParameter = new SqlParameter("@Email", email);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.VarChar;
+            inputParameter.Size = 50;
+            objCommand.Parameters.Add(inputParameter);
+
+            DataSet ds = db.GetDataSetUsingCmdObj(objCommand);
+
+            if (ds.Tables.Count > 0)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    user.Username = row["Username"].ToString();
+                    user.Password = row["Password"].ToString();
+                    user.Question1 = row["Question1"].ToString();
+                    user.Question2 = row["Question2"].ToString();
+                    user.Question3 = row["Question3"].ToString();
+                    user.Answer1 = row["Answer1"].ToString();
+                    user.Answer2 = row["Answer2"].ToString();
+                    user.Answer3 = row["Answer3"].ToString();
+                }
+            }
+            return user;
+        }
+
+        public User GetQuestionsAndAnswersForTeacher(String email)
+        {
+            User user = new User();
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetQuestionsAndAnswersForTeacher";
+
+            SqlParameter inputParameter = new SqlParameter("@Email", email);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.VarChar;
+            inputParameter.Size = 50;
+            objCommand.Parameters.Add(inputParameter);
+
+            DataSet ds = db.GetDataSetUsingCmdObj(objCommand);
+
+            if (ds.Tables.Count > 0)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    user.Username = row["Username"].ToString();
+                    user.Password = row["Password"].ToString();
+                    user.Question1 = row["Question1"].ToString();
+                    user.Question2 = row["Question2"].ToString();
+                    user.Question3 = row["Question3"].ToString();
+                    user.Answer1 = row["Answer1"].ToString();
+                    user.Answer2 = row["Answer2"].ToString();
+                    user.Answer3 = row["Answer3"].ToString();
+                }
+            }
+            return user;
+        }
+
 
     }
 

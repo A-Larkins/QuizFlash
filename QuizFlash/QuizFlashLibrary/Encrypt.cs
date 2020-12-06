@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using System.Security.Cryptography;     // needed for the encryption classes
 using System.IO;                        // needed for the MemoryStream
-using System.Text;                      // needed for the UTF8 encoding
+
 
 namespace QuizFlashLibrary
 {
@@ -70,6 +70,7 @@ namespace QuizFlashLibrary
             // Use the crypto stream to perform the decryption on the encrypted data in the byte array.
             myDecryptionStream.Write(encryptedPasswordBytes, 0, encryptedPasswordBytes.Length);
             myDecryptionStream.FlushFinalBlock();
+
 
             // Retrieve the decrypted data from the memory stream, and write it to a separate byte array.
             myMemoryStream.Position = 0;

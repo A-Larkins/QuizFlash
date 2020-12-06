@@ -2,8 +2,8 @@
 
 <div class="centered w-25 p-3">
 
-    <div class="card" style="border-width:5px; border-color:lightseagreen">
-        <div class="logo mb-3" Style="background-color:lightseagreen">
+    <div class="card" style="border-width:5px; border-color:lightseagreen;">
+        <div class="logo mb-3" style="background-color:lightseagreen">
             <div class="card-header text-center">
                 <h1 style= "color:white;" >Login</h1>
             </div>
@@ -34,8 +34,11 @@
             <div class="form-group">
         
                 <asp:Button ID="btnLogin" CssClass="btn btn-primary" Width="40%" runat="server" Text="Login" OnClick="btnLogin_Click"  />
+                <p></p>
                 <p><asp:Label ID="lblErrorMessage" CssClass="text-danger" runat="server" Text="Error" Visible="False"></asp:Label></p>
                 <p></p>
+                <p class="text-center">
+                    <asp:Label ID="lblForgotPassword" Visible="false" runat="server" Text="Forgot password: "></asp:Label> <asp:Button ID="btnRecover" Visible="false" CssClass="btn btn-link" runat="server" Text="Recover" OnClick="btnRecover_Click" /></p>
                 <p class="text-center">Create a new account: <asp:Button ID="btnRegister" CssClass="btn btn-link" runat="server" Text="Register" OnClick="Register_Click" /></p>
                 <p class="text-center">Enter as guest: <asp:Button ID="btnGuest" CssClass="btn btn-link" runat="server" Text="Continue As Guest" OnClick="btnGuest_Click" /></p>
                 <div class="form-group">
