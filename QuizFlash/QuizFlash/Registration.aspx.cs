@@ -89,15 +89,61 @@ namespace QuizFlash
         private User CreateUser()
         {
             User user = new User();
-            user.Username = txtUsername.Text;
+            if (!String.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                user.Email = txtEmail.Text;
+
+            }
+            if (!String.IsNullOrWhiteSpace(txtUsername.Text))
+            {
+                user.Username = txtUsername.Text;
+            }
             if (!String.IsNullOrWhiteSpace(txtPassword.Text))
             {
                 String passwordEncrypted = encrypt.EncryptPassword(txtPassword.Text);
                 user.Password = passwordEncrypted;
             }
-            user.FirstName = txtFirstName.Text;
-            user.LastName = txtLastName.Text;
-            user.Email = txtEmail.Text;
+            if(!String.IsNullOrWhiteSpace(txtFirstName.Text))
+            {
+                user.FirstName = txtFirstName.Text;
+
+            }
+            if(!String.IsNullOrWhiteSpace(txtLastName.Text))
+            {
+                user.LastName = txtLastName.Text;
+
+            }
+            if (!String.IsNullOrWhiteSpace(txtSecurityQ1.Text))
+            {
+                user.Question1 = txtSecurityQ1.Text;
+
+            }
+            if (!String.IsNullOrWhiteSpace(txtSecurityA1.Text))
+            {
+                user.Answer1 = txtSecurityA1.Text;
+
+            }
+            if (!String.IsNullOrWhiteSpace(txtSecurityQ2.Text))
+            {
+                user.Question2 = txtSecurityQ2.Text;
+
+            }
+            if (!String.IsNullOrWhiteSpace(txtSecurityA2.Text))
+            {
+                user.Answer2 = txtSecurityA2.Text;
+
+            }
+            if (!String.IsNullOrWhiteSpace(txtSecurityQ3.Text))
+            {
+                user.Question3 = txtSecurityQ3.Text;
+
+            }
+            if (!String.IsNullOrWhiteSpace(txtSecurityA3.Text))
+            {
+                user.Answer3 = txtSecurityA3.Text;
+
+            }
+
 
             return user;
         }
@@ -146,6 +192,43 @@ namespace QuizFlash
                 lblErrorMessage.Text = "Enter an email address...";
                 ret = false;
             }
+            if (String.IsNullOrWhiteSpace(user.Question1))
+            {
+                lblErrorMessage.Visible = true;
+                lblErrorMessage.Text = "Enter security question 1...";
+                ret = false;
+            }
+            if (String.IsNullOrWhiteSpace(user.Question2))
+            {
+                lblErrorMessage.Visible = true;
+                lblErrorMessage.Text = "Enter security question 2...";
+                ret = false;
+            }
+            if (String.IsNullOrWhiteSpace(user.Question3))
+            {
+                lblErrorMessage.Visible = true;
+                lblErrorMessage.Text = "Enter security question 3...";
+                ret = false;
+            }
+            if (String.IsNullOrWhiteSpace(user.Answer1))
+            {
+                lblErrorMessage.Visible = true;
+                lblErrorMessage.Text = "Enter security answer 1...";
+                ret = false;
+            }
+            if (String.IsNullOrWhiteSpace(user.Answer2))
+            {
+                lblErrorMessage.Visible = true;
+                lblErrorMessage.Text = "Enter security answer 2...";
+                ret = false;
+            }
+            if (String.IsNullOrWhiteSpace(user.Answer3))
+            {
+                lblErrorMessage.Visible = true;
+                lblErrorMessage.Text = "Enter security answer 3...";
+                ret = false;
+            }
+
             return ret;
         }
 

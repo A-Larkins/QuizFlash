@@ -88,6 +88,12 @@ namespace QuizFlashLibrary
             objCommand.Parameters.AddWithValue("@FirstName", user.FirstName);
             objCommand.Parameters.AddWithValue("@LastName", user.LastName);
             objCommand.Parameters.AddWithValue("@Email", user.Email);
+            objCommand.Parameters.AddWithValue("@Question1", user.Question1);
+            objCommand.Parameters.AddWithValue("@Answer1", user.Answer1);
+            objCommand.Parameters.AddWithValue("@Question2", user.Question2);
+            objCommand.Parameters.AddWithValue("@Answer2", user.Answer2);
+            objCommand.Parameters.AddWithValue("Question3", user.Question3);
+            objCommand.Parameters.AddWithValue("@Answer3", user.Answer3);
 
             return db.DoUpdateUsingCmdObj(objCommand);
         }
@@ -103,6 +109,12 @@ namespace QuizFlashLibrary
             objCommand.Parameters.AddWithValue("@FirstName", user.FirstName);
             objCommand.Parameters.AddWithValue("@LastName", user.LastName);
             objCommand.Parameters.AddWithValue("@Email", user.Email);
+            objCommand.Parameters.AddWithValue("@Question1", user.Question1);
+            objCommand.Parameters.AddWithValue("@Answer1", user.Answer1);
+            objCommand.Parameters.AddWithValue("@Question2", user.Question2);
+            objCommand.Parameters.AddWithValue("@Answer2", user.Answer2);
+            objCommand.Parameters.AddWithValue("Question3", user.Question3);
+            objCommand.Parameters.AddWithValue("@Answer3", user.Answer3);
 
             return db.DoUpdateUsingCmdObj(objCommand);
         }
