@@ -45,25 +45,17 @@ namespace ClassSoapWS
             return myDS;
         }
 
-
         [WebMethod]
-        public Boolean CreateClass(TeacherClass obj)
+
+        public Boolean AddClass(TeacherClass obj)
         {
             if (obj != null)
             {
                 DBConnect objDB = new DBConnect();
-                SqlCommand objCommand = new SqlCommand();
 
-                objCommand.CommandType = CommandType.StoredProcedure;
-                objCommand.CommandText = "Create new class";
-
-                objCommand.Parameters.AddWithValue("@Name", obj.Name);
-                objCommand.Parameters.AddWithValue("@Subject", obj.Subject);
-                objCommand.Parameters.AddWithValue("@Username", obj.Username);
-                objCommand.Parameters.AddWithValue("@User_Type", obj.User_Type);
-
-                int retVal = objDB.DoUpdateUsingCmdObj(objCommand);
-
+                String strSQL = "INSERT INTO TP_Classes (Name, Subject, Username, User_Type) " +
+                                 "VALUES ('" + obj.Name + "','" + obj.Subject + "','" + obj.Username + "','" + obj.User_Type + "')";
+                int retVal = objDB.DoUpdate(strSQL);
                 if (retVal > 0)
                     return true;
                 else
@@ -82,12 +74,8 @@ namespace ClassSoapWS
             {
                 DBConnect objDB = new DBConnect();
 
-                String dbStr = "DELETE" +
-                                "FROM TP_Classes WHERE Name='" + className +
-                                "'";
-
-                int retVal = objDB.DoUpdate(dbStr);
-
+                String strSQL = "DELETE * FROM TP_Classes WHERE Name='" + className + "'";
+                int retVal = objDB.DoUpdate(strSQL);
                 if (retVal > 0)
                     return true;
                 else

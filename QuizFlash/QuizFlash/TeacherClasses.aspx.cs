@@ -22,6 +22,7 @@ namespace QuizFlash
             gvClasses.DataSource = pxy.GetClass(Session["username"].ToString());
             gvClasses.DataBind();
 
+
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
@@ -49,7 +50,7 @@ namespace QuizFlash
 
                 //use ws method to add object to the class
 
-                if (pxy.CreateClass(tempClass))
+                if (pxy.AddClass(tempClass))
                 {
                     lblClassError.Text = "The class was added!";
                 }
@@ -60,27 +61,12 @@ namespace QuizFlash
             }
         }
 
-        protected Boolean btnDelete_Click(object sender, EventArgs e)
+        protected void btnDelete_Click(object sender, EventArgs e)
         {
-            //Get the button that raised the event
-            Button btn = (Button)sender;
-
-            //Get the row that contains this button
-            GridViewRow gvr = (GridViewRow)btn.NamingContainer;
-
-            DBConnect objDB = new DBConnect();
-
-            String dbStr = "DELETE" +
-                            "FROM TP_Classes WHERE Name='" + gvr.Cells[1].Text +
-                            "'";
-
-            int retVal = objDB.DoUpdate(dbStr);
-
-            if (retVal > 0)
-                return true;
-            else
-                return false;
-        
+                
+                TeacherClass temp = new TeacherClass();
+            temp.Name = txtClassName.Text;
+                pxy.DeleteClass(temp.Name);
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -92,8 +78,13 @@ namespace QuizFlash
             GridViewRow gvr = (GridViewRow)btn.NamingContainer;
 
             TeacherClass temp = new TeacherClass(gvr.Cells[1].Text, gvr.Cells[2].Text, Session["username"].ToString(), "Teacher");
-            Session["Temp"] = temp;
-            Response.Redirect("ClassPage.aspx");
+                Session["Temp"] = temp;
+                Response.Redirect("ClassPage.aspx");
+
+        }
+
+        protected void gvClasses_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
