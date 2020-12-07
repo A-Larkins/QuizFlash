@@ -46,7 +46,6 @@ namespace ClassSoapWS
         }
 
         [WebMethod]
-
         public Boolean AddClass(TeacherClass obj)
         {
             if (obj != null)
@@ -73,14 +72,11 @@ namespace ClassSoapWS
             if (obj != null)
             {
                 DBConnect db = new DBConnect();
-                SqlCommand sqlCmd = new SqlCommand();
-
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-                sqlCmd.CommandText = "TP_DeleteClass";
-                sqlCmd.Parameters.AddWithValue("@Name", obj.Name);
-
-                int retval = db.DoUpdateUsingCmdObj(sqlCmd);
-                if (retval > 0)
+                String cmd = "DELETE FROM TP_Classes (Name, Subject, Username, User_Type) " +
+                             "VALUES('" + obj.Name + "', '" + obj.Subject + "', '" + obj.Username + "', '" + obj.User_Type + "')";
+                int row = db.DoUpdate(cmd);
+                
+                if (row > 0)
                     return true;
                 else
                     return false;
@@ -89,9 +85,8 @@ namespace ClassSoapWS
             {
                 return false;
             }
-
-
-
         }
+
+
     }
 }
