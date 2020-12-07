@@ -68,10 +68,8 @@ namespace QuizFlash
             //Get the row that contains this button
             GridViewRow gvr = (GridViewRow)btn.NamingContainer;
 
-
             DBConnect objDB = new DBConnect();
 
-            String name1 = ;
             String dbStr = "DELETE" +
                             "FROM TP_Classes WHERE Name='" + gvr.Cells[1].Text +
                             "'";
@@ -84,5 +82,20 @@ namespace QuizFlash
                 return false;
         
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            //Get the button that raised the event
+            Button btn = (Button)sender;
+
+            //Get the row that contains this button
+            GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+
+            TeacherClass temp = new TeacherClass(gvr.Cells[1].Text, gvr.Cells[2].Text, Session["username"].ToString(), "Teacher");
+            Session["Temp"] = temp;
+            Response.Redirect("ClassPage.aspx");
+
+        }
     }
+    
 }

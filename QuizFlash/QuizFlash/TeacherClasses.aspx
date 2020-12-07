@@ -18,11 +18,18 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
+    <style type="text/css">
+        .auto-style1 {
+            left: 1px;
+            top: 3px;
+        }
+    </style>
+
 </head>
 <body>
     <form id="frmTeacherClasses" runat="server">
         
-        <nav class="navbar navbar-expand-lg" style="background-color: #8ec0e7; background: #8ec0e7;">
+        <nav class="auto-style1" style="background-color: #8ec0e7; background: #8ec0e7;">
             <a class="navbar-brand text-light" href="TeacherHomepage.aspx">
                 <img src="/Images/QuizFlashLogo.png" alt="" /></a>
             
@@ -43,7 +50,19 @@
             <div class="d-flex justify-content-center">
                 <div class="row">
 
-                    <asp:GridView ID="gvClasses" runat="server">
+                    <asp:GridView ID="gvClasses" runat="server" OnSelectedIndexChanged="gvClasses_SelectedIndexChanged">
+                        <Columns>
+                            <asp:TemplateField HeaderText="Delete">
+                                <ItemTemplate>
+                                    <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete Class" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Open Class">
+                                <ItemTemplate>
+                                    <asp:Button ID="btnOpen" runat="server" OnClick="Button1_Click" Text="Open Class" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
                     </asp:GridView>
                     <asp:Label ID="lblClassName" runat="server" Text="Enter a class name:"></asp:Label>
 &nbsp;&nbsp;&nbsp;
