@@ -52,11 +52,6 @@
 
                     <asp:GridView ID="gvClasses" runat="server" OnSelectedIndexChanged="gvClasses_SelectedIndexChanged">
                         <Columns>
-                            <asp:TemplateField HeaderText="Delete">
-                                <ItemTemplate>
-                                    <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete Class" />
-                                </ItemTemplate>
-                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="Open Class">
                                 <ItemTemplate>
                                     <asp:Button ID="btnOpen" runat="server" OnClick="Button1_Click" Text="Open Class" />
@@ -73,7 +68,8 @@
                     <asp:TextBox ID="txtClassSubject" runat="server"></asp:TextBox>
                     <br />
                     <asp:Button ID="btnCreateClass" runat="server" Text="Create Class" OnClick="btnCreateClass_Click1" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnDeleteClass" runat="server" Text="Delete Class" OnClick="btnCreateClass_Click1" />
+                    &nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblClassError" runat="server" Text="Error"></asp:Label>
 
                 </div>
