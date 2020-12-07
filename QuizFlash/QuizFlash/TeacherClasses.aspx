@@ -46,7 +46,7 @@
             </div>
         </nav>
 
-        <div class="container-fluid">
+        <div class="container-fluid" style="border-width:5px; border-color:lightseagreen;">
             <div class="d-flex justify-content-center">
                 <div class="row">
 
@@ -67,8 +67,8 @@
 &nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtClassSubject" runat="server"></asp:TextBox>
                     <br />
-                    <asp:Button ID="btnCreateClass" runat="server" Text="Create Class" OnClick="btnCreateClass_Click1" />
-&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnDeleteClass" runat="server" Text="Delete Class" OnClick="btnCreateClass_Click1" />
+                    <asp:Button ID="btnCreateClass" runat="server" Text="Create Class" OnClick="btnCreateClass_Click" />
+&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnDeleteClass" runat="server" Text="Delete Class" OnClick="btnDeleteClass_Click" />
                     &nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblClassError" runat="server" Text="Error"></asp:Label>
 
