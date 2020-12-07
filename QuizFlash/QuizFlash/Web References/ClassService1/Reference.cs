@@ -177,24 +177,24 @@ namespace QuizFlash.ClassService1 {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DeleteClass", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public bool DeleteClass(TeacherClass obj) {
+        public bool DeleteClass(string className) {
             object[] results = this.Invoke("DeleteClass", new object[] {
-                        obj});
+                        className});
             return ((bool)(results[0]));
         }
         
         /// <remarks/>
-        public void DeleteClassAsync(TeacherClass obj) {
-            this.DeleteClassAsync(obj, null);
+        public void DeleteClassAsync(string className) {
+            this.DeleteClassAsync(className, null);
         }
         
         /// <remarks/>
-        public void DeleteClassAsync(TeacherClass obj, object userState) {
+        public void DeleteClassAsync(string className, object userState) {
             if ((this.DeleteClassOperationCompleted == null)) {
                 this.DeleteClassOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteClassOperationCompleted);
             }
             this.InvokeAsync("DeleteClass", new object[] {
-                        obj}, this.DeleteClassOperationCompleted, userState);
+                        className}, this.DeleteClassOperationCompleted, userState);
         }
         
         private void OnDeleteClassOperationCompleted(object arg) {

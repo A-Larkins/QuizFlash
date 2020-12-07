@@ -71,6 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ClassPage.aspx" />
     <Content Include="EditFlashcardSet.aspx" />
     <Content Include="GuestHomepage.aspx" />
     <Content Include="LoginControl.ascx" />
@@ -91,9 +92,17 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Web References\ClassService1\Classes.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassPage.aspx.cs">
+      <DependentUpon>ClassPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClassPage.aspx.designer.cs">
+      <DependentUpon>ClassPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditFlashcardSet.aspx.cs">
       <DependentUpon>EditFlashcardSet.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -191,10 +200,20 @@
     <Compile Include="TeacherHomepage.aspx.designer.cs">
       <DependentUpon>TeacherHomepage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web References\ClassService1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Web References\ClassService1\Classes.wsdl" />
+    <None Include="Web References\ClassService1\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -216,6 +235,19 @@
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:51685/Classes.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ClassService1\</RelPath>
+      <UpdateFromURL>http://localhost:51685/Classes.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>QuizFlash_ClassService1_Classes</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

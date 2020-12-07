@@ -45,6 +45,7 @@ namespace ClassSoapWS
             return myDS;
         }
 
+
         [WebMethod]
         public Boolean CreateClass(TeacherClass obj)
         {
@@ -81,7 +82,7 @@ namespace ClassSoapWS
             {
                 DBConnect objDB = new DBConnect();
 
-                String dbStr = "SELECT * " +
+                String dbStr = "DELETE" +
                                 "FROM TP_Classes WHERE Name='" + className +
                                 "'";
 
@@ -97,5 +98,7 @@ namespace ClassSoapWS
                 return false;
             }
         }
+
+
     }
 }
