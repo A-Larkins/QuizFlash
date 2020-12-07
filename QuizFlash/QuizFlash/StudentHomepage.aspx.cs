@@ -231,6 +231,7 @@ namespace QuizFlash
             }
             else
             {
+                StudyControl.Visible = false;
                 lblAllFlashcardSets.Text = "Results for search: " + search;
                 reader.Close();
                 response.Close();

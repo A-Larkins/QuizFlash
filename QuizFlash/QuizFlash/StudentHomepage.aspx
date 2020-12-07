@@ -23,7 +23,7 @@
 
 </head>
 
-<body>
+<body style="background-color: #d0d0d0">
     <form id="frmStudentHomepage" runat="server">
         
         <nav class="navbar navbar-expand-lg" style="background-color: #8ec0e7; background: #8ec0e7;">
@@ -55,6 +55,7 @@
             </div>
         </nav>
 
+        <div><p></p></div>
         <div class="d-flex justify-content-center">
             <h1><asp:Label ID="lblMyFlashcardSets" runat="server" Text="Click on create to make your own flashcard set!"></asp:Label></h1>
         </div>
@@ -62,8 +63,8 @@
         <div class="row justify-content-center">
             <div class="col-8">
                 <div class="table-responsive">
-                    <div class="table">
-                        <asp:GridView ID="gvMyFlashcardSets" UseAccessibleHeader="true" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" OnRowCommand="ButtonFireFromMySets" OnRowDeleting="gvMyFlashcardSets_RowDeleting">
+                    <div class="table" >
+                        <asp:GridView ID="gvMyFlashcardSets" BackColor="LightGreen" BorderWidth="4px" BorderColor="DarkCyan" UseAccessibleHeader="true" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" OnRowCommand="ButtonFireFromMySets" OnRowDeleting="gvMyFlashcardSets_RowDeleting" >
                             <Columns>
                                 <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="NameOfFlashcardSet" HeaderText="Flashcard Set" />
                                 <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="SubjectOfFlashcardSet" HeaderText="Subject" />
@@ -86,7 +87,7 @@
             <div class="col-8">
                 <div class="table-responsive">
                     <div class="table">
-                        <asp:GridView ID="gvAllFlashcardSets" UseAccessibleHeader="true" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" OnRowCommand="StudyFromAllSets">
+                        <asp:GridView ID="gvAllFlashcardSets" BorderWidth="4px" BackColor="LightGreen"  BorderColor="DarkCyan" UseAccessibleHeader="true" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" OnRowCommand="StudyFromAllSets">
                             <Columns>
                                 <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="NameOfFlashcardSet" HeaderText="Flashcard Set" />
                                 <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="SubjectOfFlashcardSet" HeaderText="Subject" />
