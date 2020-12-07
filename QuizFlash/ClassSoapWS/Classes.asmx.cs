@@ -75,22 +75,17 @@ namespace ClassSoapWS
         }
 
         [WebMethod]
-        public Boolean DeleteClass(TeacherClass obj)
+        public Boolean DeleteClass(String className)
         {
-            if (obj != null)
+            if (className != null)
             {
                 DBConnect objDB = new DBConnect();
-                SqlCommand objCommand = new SqlCommand();
 
-                objCommand.CommandType = CommandType.StoredProcedure;
-                objCommand.CommandText = "Create new class";
+                String dbStr = "SELECT * " +
+                                "FROM TP_Classes WHERE Name='" + className +
+                                "'";
 
-                objCommand.Parameters.AddWithValue("@Name", obj.Name);
-                objCommand.Parameters.AddWithValue("@Subject", obj.Subject);
-                objCommand.Parameters.AddWithValue("@Username", obj.Username);
-                objCommand.Parameters.AddWithValue("@User_Type", obj.User_Type);
-
-                int retVal = objDB.DoUpdateUsingCmdObj(objCommand);
+                int retVal = objDB.DoUpdate(dbStr);
 
                 if (retVal > 0)
                     return true;
