@@ -53,7 +53,7 @@
 &nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtClassSubject" runat="server"></asp:TextBox>
                     <br />
-                    <asp:Button ID="btnCreateClass" runat="server" Text="Create Class" />
+                    <asp:Button ID="btnCreateClass" runat="server" Text="Create Class" OnClick="btnCreateClass_Click1" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblClassError" runat="server" Text="Error"></asp:Label>
 
