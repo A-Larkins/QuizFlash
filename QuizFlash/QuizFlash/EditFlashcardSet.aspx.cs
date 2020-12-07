@@ -49,11 +49,11 @@ namespace QuizFlash
             foreach (FlashcardClass flashcard in sets)
             {
                 set.Add(flashcard);
+                
             }
-
             rptEdit.DataSource = set;
             rptEdit.DataBind();
-            
+
         }
         
 
@@ -65,13 +65,14 @@ namespace QuizFlash
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-            FlashcardClass flashcard = new FlashcardClass();
             List<FlashcardClass> setInsert = new List<FlashcardClass>();
             String setName = Session["setName"].ToString();
 
             // get the input values from repeater
             foreach (RepeaterItem item in rptEdit.Items)
             {
+                FlashcardClass flashcard = new FlashcardClass();
+
                 TextBox txtQuestion = (TextBox)item.FindControl("txtQuestion");
                 if (txtQuestion.Text != null || !(String.IsNullOrWhiteSpace(txtQuestion.Text)))
                 {

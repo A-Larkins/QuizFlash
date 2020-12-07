@@ -1,12 +1,12 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="StudyControl.ascx.cs" Inherits="QuizFlash.StudyControl" %>
 
-<div class="card text-center">
-  <div class="card-header">
+<div class="card text-center" style="border-color: darkcyan; border-width:thick;" >
+  <div class="card-header" style="border-color:darkcyan; border-width: thick; background-color:lightseagreen">
       <asp:Label ID="lblSetName" runat="server" Text="Set Name" Font-Bold="True" Font-Size="XX-Large" ></asp:Label>
   </div>
 
-  <asp:Image ID="flashcardImage" CssClass="card-image-top" runat="server" />
-  <div class="card-body">
+  <asp:Image ID="flashcardImage" CssClass="card image cap" runat="server" style="background-color:lightgreen" />
+  <div class="card-body" style="background-color:lightgreen; ">
     <h5 class="card-title"><asp:Label ID="lblQuestion" runat="server" Font-Size="X-Large" Text="Question Question Question?"></asp:Label></h5>
     
     <p class="card-text"><asp:Label ID="lblAnswer" runat="server" Font-Size="Large" Text="Answer Answer Answer" Visible="False"></asp:Label></p>
