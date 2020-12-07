@@ -43,7 +43,19 @@
             <div class="d-flex justify-content-center">
                 <div class="row">
 
-                    *Buttons to add a new class, edit a class, edit a quiz*
+                    <asp:GridView ID="gvClasses" runat="server">
+                    </asp:GridView>
+                    <asp:Label ID="lblClassName" runat="server" Text="Enter a class name:"></asp:Label>
+&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="txtClassName" runat="server"></asp:TextBox>
+                    <br />
+                    <asp:Label ID="lblClassSubject" runat="server" Text="Enter a class subject:"></asp:Label>
+&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="txtClassSubject" runat="server"></asp:TextBox>
+                    <br />
+                    <asp:Button ID="btnCreateClass" runat="server" Text="Create Class" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="lblClassError" runat="server" Text="Error"></asp:Label>
 
                 </div>
             </div>
