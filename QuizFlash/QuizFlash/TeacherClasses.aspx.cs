@@ -6,13 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Collections;
 using QuizFlashLibrary;
+using ClassSOAPWS;
 
 namespace QuizFlash
 {
     public partial class TeacherClasses : System.Web.UI.Page
     {
         //Proxy Object
-        ClassService.Classes pxy = new ClassService.Classes();
+        ClassService1.Classes pxy = new ClassService1.Classes();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,9 +30,8 @@ namespace QuizFlash
             Response.Redirect("LoginPage.aspx");
         }
 
-        protected void btnCreateClass_Click(object sender, EventArgs e)
+        protected void btnCreateClass_Click1(object sender, EventArgs e)
         {
-
             if (txtClassName.Text == "" || txtClassSubject.Text == "")
             {
                 lblClassError.Text = "Class could not be created: One or more fields were left blank.";
@@ -39,7 +39,7 @@ namespace QuizFlash
             else
             {
                 //create proxy object
-                ClassService.TeacherClass tempClass = new ClassService.TeacherClass();
+                ClassService1.TeacherClass tempClass = new ClassService1.TeacherClass();
 
                 //add values
                 tempClass.Name = txtClassName.Text;

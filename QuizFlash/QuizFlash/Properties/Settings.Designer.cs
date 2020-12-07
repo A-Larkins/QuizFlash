@@ -32,5 +32,15 @@ namespace QuizFlash.Properties {
                 return ((string)(this["QuizFlash_ClassService_Classes"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:51685/Classes.asmx")]
+        public string QuizFlash_ClassService1_Classes {
+            get {
+                return ((string)(this["QuizFlash_ClassService1_Classes"]));
+            }
+        }
     }
 }
