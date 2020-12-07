@@ -59,5 +59,30 @@ namespace QuizFlash
                 }
             }
         }
+
+        protected Boolean btnDelete_Click(object sender, EventArgs e)
+        {
+            //Get the button that raised the event
+            Button btn = (Button)sender;
+
+            //Get the row that contains this button
+            GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+
+
+            DBConnect objDB = new DBConnect();
+
+            String name1 = ;
+            String dbStr = "DELETE" +
+                            "FROM TP_Classes WHERE Name='" + gvr.Cells[1].Text +
+                            "'";
+
+            int retVal = objDB.DoUpdate(dbStr);
+
+            if (retVal > 0)
+                return true;
+            else
+                return false;
+        
+        }
     }
 }
