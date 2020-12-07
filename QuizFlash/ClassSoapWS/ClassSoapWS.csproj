@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{100FD2FB-543F-42F6-AB99-68E7BDAB64C2}</ProjectGuid>
+    <ProjectGuid>{F4D40222-9469-4FEF-9791-CE6ACC49D31D}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QuizFlash</RootNamespace>
-    <AssemblyName>QuizFlash</AssemblyName>
+    <RootNamespace>ClassSoapWS</RootNamespace>
+    <AssemblyName>ClassSoapWS</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -44,10 +44,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -71,130 +67,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EditFlashcardSet.aspx" />
-    <Content Include="GuestHomepage.aspx" />
-    <Content Include="LoginControl.ascx" />
-    <Content Include="LoginPage.aspx" />
-    <Content Include="RecoverAccountPage.aspx" />
-    <Content Include="Registration.aspx" />
-    <Content Include="StudentClasses.aspx" />
-    <Content Include="StudentCreateFlashcardSet.aspx" />
-    <Content Include="StudentHomepage.aspx" />
-    <Content Include="StudyControl.ascx" />
-    <Content Include="Styles\HomepageStyle.css" />
-    <Content Include="Styles\LoginStyle.css" />
-    <Content Include="Styles\StudyStyle.css" />
-    <Content Include="TeacherClasses.aspx" />
-    <Content Include="TeacherCreate.aspx" />
-    <Content Include="TeacherHomepage.aspx" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
+    <Content Include="Classes.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EditFlashcardSet.aspx.cs">
-      <DependentUpon>EditFlashcardSet.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EditFlashcardSet.aspx.designer.cs">
-      <DependentUpon>EditFlashcardSet.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GuestHomepage.aspx.cs">
-      <DependentUpon>GuestHomepage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GuestHomepage.aspx.designer.cs">
-      <DependentUpon>GuestHomepage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="LoginControl.ascx.cs">
-      <DependentUpon>LoginControl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LoginControl.ascx.designer.cs">
-      <DependentUpon>LoginControl.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="LoginPage.aspx.cs">
-      <DependentUpon>LoginPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LoginPage.aspx.designer.cs">
-      <DependentUpon>LoginPage.aspx</DependentUpon>
+    <Compile Include="Classes.asmx.cs">
+      <DependentUpon>Classes.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="RecoverAccountPage.aspx.cs">
-      <DependentUpon>RecoverAccountPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RecoverAccountPage.aspx.designer.cs">
-      <DependentUpon>RecoverAccountPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Registration.aspx.cs">
-      <DependentUpon>Registration.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registration.aspx.designer.cs">
-      <DependentUpon>Registration.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="StudentClasses.aspx.cs">
-      <DependentUpon>StudentClasses.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="StudentClasses.aspx.designer.cs">
-      <DependentUpon>StudentClasses.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="StudentCreateFlashcardSet.aspx.cs">
-      <DependentUpon>StudentCreateFlashcardSet.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="StudentCreateFlashcardSet.aspx.designer.cs">
-      <DependentUpon>StudentCreateFlashcardSet.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="StudentHomepage.aspx.cs">
-      <DependentUpon>StudentHomepage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="StudentHomepage.aspx.designer.cs">
-      <DependentUpon>StudentHomepage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="StudyControl.ascx.cs">
-      <DependentUpon>StudyControl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="StudyControl.ascx.designer.cs">
-      <DependentUpon>StudyControl.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="TeacherClasses.aspx.cs">
-      <DependentUpon>TeacherClasses.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TeacherClasses.aspx.designer.cs">
-      <DependentUpon>TeacherClasses.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TeacherCreate.aspx.cs">
-      <DependentUpon>TeacherCreate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TeacherCreate.aspx.designer.cs">
-      <DependentUpon>TeacherCreate.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TeacherHomepage.aspx.cs">
-      <DependentUpon>TeacherHomepage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TeacherHomepage.aspx.designer.cs">
-      <DependentUpon>TeacherHomepage.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -203,19 +87,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QuizFlashLibrary\QuizFlashLibrary.csproj">
       <Project>{2e043fd0-e27c-4618-9097-7e162c5891fc}</Project>
       <Name>QuizFlashLibrary</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferences Include="Web References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -230,9 +108,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>56302</DevelopmentServerPort>
+          <DevelopmentServerPort>51685</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:56302/</IISUrl>
+          <IISUrl>http://localhost:51685/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
