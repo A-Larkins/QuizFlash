@@ -46,15 +46,23 @@ namespace ClassSoapWS
         }
 
         [WebMethod]
-        public Boolean AddClass(TeacherClass obj)
+        public Boolean CreateClass(TeacherClass obj)
         {
             if (obj != null)
             {
                 DBConnect objDB = new DBConnect();
+                SqlCommand objCommand = new SqlCommand();
 
-                String strSQL = "INSERT INTO TP_Classes (Name, Subject, Username, User_Type) " +
-                                 "VALUES ('" + obj.Name + "','" + obj.Subject + "','" + obj.Username + "','" + obj.User_Type + "')";
-                int retVal = objDB.DoUpdate(strSQL);
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "Create new class";
+
+                objCommand.Parameters.AddWithValue("@Name", obj.Name);
+                objCommand.Parameters.AddWithValue("@Subject", obj.Subject);
+                objCommand.Parameters.AddWithValue("@Username", obj.Username);
+                objCommand.Parameters.AddWithValue("@User_Type", obj.User_Type);
+
+                int retVal = objDB.DoUpdateUsingCmdObj(objCommand);
+
                 if (retVal > 0)
                     return true;
                 else
@@ -67,17 +75,19 @@ namespace ClassSoapWS
         }
 
         [WebMethod]
-        public Boolean DeleteClass(String name)
+        public Boolean DeleteClass(String className)
         {
-            if (name != null)
+            if (className != null)
             {
+                DBConnect objDB = new DBConnect();
 
-                DBConnect db = new DBConnect();
-                String cmd = "DELETE FROM TP_Classes (Name, Subject, Username, User_Type) " +
-                             "VALUES('" + obj.Name + "', '" + obj.Subject + "', '" + obj.Username + "', '" + obj.User_Type + "')";
-                int row = db.DoUpdate(cmd);
-                
-                if (row > 0)
+                String dbStr = "SELECT * " +
+                                "FROM TP_Classes WHERE Name='" + className +
+                                "'";
+
+                int retVal = objDB.DoUpdate(dbStr);
+
+                if (retVal > 0)
                     return true;
                 else
                     return false;
@@ -86,9 +96,6 @@ namespace ClassSoapWS
             {
                 return false;
             }
-            
         }
-
-
     }
 }
