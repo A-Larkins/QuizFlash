@@ -84,6 +84,7 @@
     <Content Include="Styles\HomepageStyle.css" />
     <Content Include="Styles\LoginStyle.css" />
     <Content Include="Styles\StudyStyle.css" />
+    <Content Include="TakeQuizPage.aspx" />
     <Content Include="TeacherClasses.aspx" />
     <Content Include="TeacherCreate.aspx" />
     <Content Include="TeacherHomepage.aspx" />
@@ -91,6 +92,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Web References\ClassService1\Classes.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +172,13 @@
     <Compile Include="StudyControl.ascx.designer.cs">
       <DependentUpon>StudyControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="TakeQuizPage.aspx.cs">
+      <DependentUpon>TakeQuizPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TakeQuizPage.aspx.designer.cs">
+      <DependentUpon>TakeQuizPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TeacherClasses.aspx.cs">
       <DependentUpon>TeacherClasses.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -191,10 +200,13 @@
     <Compile Include="TeacherHomepage.aspx.designer.cs">
       <DependentUpon>TeacherHomepage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web References\ClassService1\Reference.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Web References\ClassService1\Classes.wsdl" />
+    <Content Include="Web References\ClassService1\Reference.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

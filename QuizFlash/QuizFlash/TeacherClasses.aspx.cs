@@ -71,7 +71,7 @@ namespace QuizFlash
 
             DBConnect objDB = new DBConnect();
 
-            String name1 = ;
+            String name1 = "";
             String dbStr = "DELETE" +
                             "FROM TP_Classes WHERE Name='" + gvr.Cells[1].Text +
                             "'";
