@@ -66,13 +66,6 @@ namespace QuizFlash
 
         }
 
-        protected void btnCreateClass_Click(object sender, EventArgs e)
-        {
-            HideFlashcardsForm();
-
-            // do stuff
-
-        }
 
         private void ShowCreateFlashcardForm()
         {

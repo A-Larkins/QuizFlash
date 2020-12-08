@@ -45,8 +45,7 @@
                 <div class="card-header">
                     <asp:Button ID="btnCreateFlashcard" CssClass="btn btn-primary" runat="server" Text="Create Flashcard" OnClick="btnCreateFlashcard_Click" />
                     &nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnCreateClass" CssClass="btn btn-primary" runat="server" Text="Create Class" OnClick="btnCreateClass_Click" />
-
+                    
                 </div>
                 <div class="card-header">
                     <h1><asp:Label ID="lblCreate" runat="server" Text="Create..." Visible="False"></asp:Label></h1>
