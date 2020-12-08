@@ -19,7 +19,7 @@
 
 
 </head>
-<body style="background-color: #d0d0d0">
+<body>
     <form id="frmTeacherCreate" runat="server">
         
         <nav class="navbar navbar-expand-lg" style="background-color: #8ec0e7; background: #8ec0e7;">
@@ -41,18 +41,19 @@
 
 
         <div class="centered">
-            <div class="card text-center" style="background-color: #d0d0d0">
+            <div class="card text-center">
                 <div class="card-header">
                     <asp:Button ID="btnCreateFlashcard" CssClass="btn btn-primary" runat="server" Text="Create Flashcard" OnClick="btnCreateFlashcard_Click" />
                     &nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnCreateClass" CssClass="btn btn-primary" runat="server" Text="Create Class" OnClick="btnCreateClass_Click" />
 
                 </div>
                 <div class="card-header">
-                    <h1><asp:Label ID="lblCreate"  runat ="server" Text="Create..." Visible="False"></asp:Label></h1>
+                    <h1><asp:Label ID="lblCreate" runat="server" Text="Create..." Visible="False"></asp:Label></h1>
                 </div>
             </div>
 
-            <div class="card text-center" style="background-color: #00ff90">
+            <div class="card text-center">
                 <div class="card-body">
                     <h5 class="card-title">
                         <asp:Label ID="lblSetName" runat="server" Text="Flashcard Set Name: " Visible="false"></asp:Label> &nbsp <asp:TextBox ID="txtFlashcardSetName" Visible="false" Width="200px" CssClass="card-text" runat="server"></asp:TextBox></h5>
