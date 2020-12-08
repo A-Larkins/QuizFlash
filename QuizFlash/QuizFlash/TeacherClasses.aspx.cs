@@ -101,6 +101,10 @@ namespace QuizFlash
                 tempClass.Subject = txtClassSubject.Text;
                 tempClass.Username = Session["username"].ToString();
                 tempClass.User_Type = "Teacher";
+            String name1 = "";
+            String dbStr = "DELETE" +
+                            "FROM TP_Classes WHERE Name='" + gvr.Cells[1].Text +
+                            "'";
 
                 //use ws method to add object to the class
 
