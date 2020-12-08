@@ -7,7 +7,7 @@
     <title>Student Classes</title>
 
     
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="Styles/HomepageStyle.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
@@ -19,7 +19,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 </head>
-<body>
+<body style="background-color: #d0d0d0">
     <form id="frmStudentClasses" runat="server">
         
         <nav class="navbar navbar-expand-lg" style="background-color: #8ec0e7; background: #8ec0e7;">
@@ -39,21 +39,54 @@
             </div>
         </nav>
 
-        <div class="container-fluid">
-            <div class="d-flex justify-content-center">
+        <div><p></p></div>
+        <div class="d-flex justify-content-center">
+            <h1><asp:Label ID="lblMyClasses" runat="server" Text="My Classes"></asp:Label></h1>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="table-responsive">
+                    <div class="table">
+                        <asp:GridView ID="gvClasses" BackColor="LightGreen" BorderWidth="4px" BorderColor="DarkCyan" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" OnRowCommand="gvClasses_RowCommand">
+                            <Columns>
+                                <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="ClassName" HeaderText="Class" >
+                                <HeaderStyle BackColor="LightSeaGreen"></HeaderStyle>
+                                </asp:BoundField>
+                                <asp:ButtonField ButtonType="Button" Text="Quizzes" ControlStyle-Width="75%" ControlStyle-CssClass="btn btn-primary" ItemStyle-HorizontalAlign="Center" CommandName="Quizzes" >
+                                <ControlStyle CssClass="btn btn-primary" Width="75%"></ControlStyle>
 
-                <div class="row">
-                    <h1>My Classes</h1>
+                                <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                                </asp:ButtonField>
+                            </Columns>
+                        </asp:GridView>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="container-fluid">
-            <div class="d-flex justify-content-center">
-                <div class="row">
+        <div><p></p></div>
+        <div class="d-flex justify-content-center">
+            <h1><asp:Label ID="lblQuizzes" runat="server" Visible ="false" Text="Class Quizzes"></asp:Label></h1>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="table-responsive">
+                    <div class="table">
+                        <asp:GridView ID="gvQuizzes" BackColor="LightGreen" BorderWidth="4px" BorderColor="DarkCyan" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" OnRowCommand="gvQuizzes_RowCommand" Visible="False" >
+                            <Columns>
+                                <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="QuizName" HeaderText="Quiz" >
+                                <HeaderStyle BackColor="LightSeaGreen"></HeaderStyle>
+                                </asp:BoundField>
+                                <asp:ButtonField ButtonType="Button" Text="Take Quiz" ControlStyle-Width="75%" ControlStyle-CssClass="btn btn-primary" ItemStyle-HorizontalAlign="Center" CommandName="TakeQuiz" >
+                                <ControlStyle CssClass="btn btn-primary" Width="75%"></ControlStyle>
 
-                    *View of classes that can be clicked into where quizzes can be clicked on*
-
+                                <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                                </asp:ButtonField>
+                            </Columns>
+                        </asp:GridView>
+                    </div>
                 </div>
             </div>
         </div>
