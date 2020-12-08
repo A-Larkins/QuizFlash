@@ -40,7 +40,11 @@ namespace QuizFlash
             //Get the row that contains this button
             GridViewRow gvr = (GridViewRow)btn.NamingContainer;
 
-            TeacherClass temp = new TeacherClass(gvr.Cells[1].Text, gvr.Cells[2].Text, Session["username"].ToString(), "Teacher");
+            TeacherClass temp = new TeacherClass();
+            temp.Name = gvr.Cells[1].Text;
+            temp.Subject = gvr.Cells[2].Text;
+            temp.Username = Session["username"].ToString();
+            temp.User_Type = "Teacher";
             Session["Temp"] = temp;
             Response.Redirect("ClassPage.aspx");
 

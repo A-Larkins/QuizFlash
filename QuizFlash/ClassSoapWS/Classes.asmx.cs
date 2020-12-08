@@ -67,10 +67,11 @@ namespace ClassSoapWS
         }
 
         [WebMethod]
-        public Boolean DeleteClass(TeacherClass obj)
+        public Boolean DeleteClass(String name)
         {
-            if (obj != null)
+            if (name != null)
             {
+
                 DBConnect db = new DBConnect();
                 String cmd = "DELETE FROM TP_Classes (Name, Subject, Username, User_Type) " +
                              "VALUES('" + obj.Name + "', '" + obj.Subject + "', '" + obj.Username + "', '" + obj.User_Type + "')";
@@ -85,6 +86,7 @@ namespace ClassSoapWS
             {
                 return false;
             }
+            
         }
 
 

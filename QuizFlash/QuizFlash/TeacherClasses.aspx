@@ -51,39 +51,26 @@
                 <div class="row">
 
                     <asp:GridView ID="gvClasses" runat="server" OnSelectedIndexChanged="gvClasses_SelectedIndexChanged">
-                        <Columns>
-                            <asp:TemplateField HeaderText="Open Class">
-                                <ItemTemplate>
-                                    <asp:Button ID="btnOpen" runat="server" OnClick="Button1_Click" Text="Open Class" />
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                        </Columns>
                     </asp:GridView>
+
+                </div>
+                <div>
                     <asp:Label ID="lblClassName" runat="server" Text="Enter a class name:"></asp:Label>
-&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtClassName" runat="server"></asp:TextBox>
                     <br />
                     <asp:Label ID="lblClassSubject" runat="server" Text="Enter a class subject:"></asp:Label>
-&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtClassSubject" runat="server"></asp:TextBox>
                     <br />
                     <asp:Button ID="btnCreateClass" runat="server" Text="Create Class" OnClick="btnCreateClass_Click" />
-&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnDeleteClass" runat="server" Text="Delete Class" OnClick="btnDeleteClass_Click" />
-                    &nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblClassError" runat="server" Text="Error"></asp:Label>
-
                 </div>
             </div>
         </div>
 
         <div class="container-fluid">
-            <div class="d-flex justify-content-center">
-                <div class="row">
-
-                    *Forms for adding a new class, editing a class, editing a quiz*
-
-                </div>
-            </div>
         </div>
 
     </form>
