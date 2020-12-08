@@ -20,7 +20,7 @@
 
 
 </head>
-<body>
+<body style="background-color: #d0d0d0">
     <form id="frmStudentCreateFlashcardSet" runat="server">
         
         <nav class="navbar navbar-expand-lg" style="background-color: #8ec0e7; background: #8ec0e7;">
@@ -41,16 +41,16 @@
         </nav>
 
         <div class="centered">
-            <div class="card text-center">
-                <div class="card-header">
+            <div class="card text-center" style="width:700px; border-color:mediumseagreen; border-width:5px; " >
+                <div class="card-header" style="background-color:lightseagreen">
                     <h1>Create A Flashcard Set</h1>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Flashcard Set Name: &nbsp <asp:TextBox ID="txtFlashcardSetName" Width="200px" CssClass="card-text" runat="server"></asp:TextBox></h5>
-                    <h5 class="card-title">Flashcard Set Subject: &nbsp <asp:TextBox ID="txtFlashcardSetSubject" Width="200px" CssClass="card-text" runat="server"></asp:TextBox></h5>
-                    <p class="card-text">Flashcard Question: &nbsp <asp:TextBox ID="txtFlashcardQuestion" CssClass="card-text" Width="200px" runat="server"></asp:TextBox></p>
-                    <p class="card-text">Flashcard Answer: &nbsp <asp:TextBox ID="txtFlashcardAnswer" CssClass="card-text" runat="server" Width="200px"></asp:TextBox></p>
-                    <p class="card-text">Flashcard Image: &nbsp <asp:TextBox ID="txtImage" CssClass="card-text" Width="200px" runat="server"></asp:TextBox></p>
+                    <h5 class="card-title">Flashcard Set Name: &nbsp <asp:TextBox ID="txtFlashcardSetName" Width="400px" CssClass="card-text" runat="server"></asp:TextBox></h5>
+                    <h5 class="card-title">Flashcard Set Subject: &nbsp <asp:TextBox ID="txtFlashcardSetSubject" Width="400px" CssClass="card-text" runat="server"></asp:TextBox></h5>
+                    <p class="card-text">Flashcard Question: &nbsp <asp:TextBox ID="txtFlashcardQuestion" CssClass="card-text" Width="400px" runat="server"></asp:TextBox></p>
+                    <p class="card-text">Flashcard Answer: &nbsp <asp:TextBox ID="txtFlashcardAnswer" CssClass="card-text" runat="server" Width="400px"></asp:TextBox></p>
+                    <p class="card-text">Flashcard Image: &nbsp <asp:TextBox ID="txtImage" CssClass="card-text" Width="400px" runat="server"></asp:TextBox></p>
                     <p class="card-text"><asp:Label ID="lblError" runat="server" Visible="false" CssClass="text-danger" Text="Error"></asp:Label></p>
 
                     <asp:Button ID="btnAddFlashcard" runat="server" class="btn btn-primary" Text="Add Flashcard" OnClick="btnAddFlashcard_Click" />

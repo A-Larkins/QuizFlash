@@ -22,7 +22,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 </head>
-<body>
+<body style="background-color: #d0d0d0">
     <form id="frmGuestHomepage" runat="server">
         
         <nav class="navbar navbar-expand-lg" style="background-color: #8ec0e7; background: #8ec0e7;">
@@ -46,15 +46,19 @@
         </nav>
 
        
+        <p></p><p></p>
+
         <div class="d-flex justify-content-center">
             <h1><asp:Label ID="lblAllFlashcardSets" runat="server" Text="All Flashcard Sets"></asp:Label></h1>
         </div>
+
+        <p></p>
         
         <div class="row justify-content-center">
             <div class="col-8">
                 <div class="table-responsive">
                     <div class="table">
-                        <asp:GridView ID="gvAllFlashcardSets" UseAccessibleHeader="true" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" OnRowCommand="StudyFromAllSets">
+                        <asp:GridView ID="gvAllFlashcardSets" BackColor="LightGreen" BorderWidth="4px" BorderColor="DarkCyan"  UseAccessibleHeader="true" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" OnRowCommand="StudyFromAllSets">
                             <Columns>
                                 <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="NameOfFlashcardSet" HeaderText="Flashcard Set" />
                                 <asp:BoundField HeaderStyle-BackColor="LightSeaGreen" DataField="SubjectOfFlashcardSet" HeaderText="Subject" />

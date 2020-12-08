@@ -49,15 +49,6 @@ namespace QuizFlash {
         protected global::System.Web.UI.WebControls.Button btnCreateFlashcard;
         
         /// <summary>
-        /// btnCreateClass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreateClass;
-        
-        /// <summary>
         /// lblCreate control.
         /// </summary>
         /// <remarks>
