@@ -56,7 +56,7 @@
                                 
                                 <asp:TemplateField HeaderText="Your Answer" HeaderStyle-BackColor="LightSeaGreen" >
                                     <ItemTemplate>
-                                        <asp:TextBox ID="txtUserAnswer" Text="" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtUserAnswer" Text="" Width="100%" runat="server"></asp:TextBox>
 
                                     </ItemTemplate>
 
