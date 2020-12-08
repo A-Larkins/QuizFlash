@@ -10,16 +10,16 @@
 namespace QuizFlash {
     
     
-    public partial class StudentClasses {
+    public partial class TakeQuizPage {
         
         /// <summary>
-        /// frmStudentClasses control.
+        /// frmTakeQuiz control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm frmStudentClasses;
+        protected global::System.Web.UI.HtmlControls.HtmlForm frmTakeQuiz;
         
         /// <summary>
         /// lblUserName control.
@@ -40,39 +40,48 @@ namespace QuizFlash {
         protected global::System.Web.UI.WebControls.Button btnLogout;
         
         /// <summary>
-        /// lblMyClasses control.
+        /// lblQuizName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMyClasses;
+        protected global::System.Web.UI.WebControls.Label lblQuizName;
         
         /// <summary>
-        /// gvClasses control.
+        /// gvQuizForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvClasses;
+        protected global::System.Web.UI.WebControls.GridView gvQuizForm;
         
         /// <summary>
-        /// lblQuizzes control.
+        /// btnSubmitQuiz control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblQuizzes;
+        protected global::System.Web.UI.WebControls.Button btnSubmitQuiz;
         
         /// <summary>
-        /// gvQuizzes control.
+        /// lblCorrectAnswerTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvQuizzes;
+        protected global::System.Web.UI.WebControls.Label lblCorrectAnswerTotal;
+        
+        /// <summary>
+        /// lblQuizGrade control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblQuizGrade;
     }
 }

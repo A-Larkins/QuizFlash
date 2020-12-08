@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassService.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="Email.cs" />
     <Compile Include="Encrypt.cs" />
@@ -51,6 +52,9 @@
     <Compile Include="FlashcardSetClass.cs" />
     <Compile Include="LoginClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quiz.cs" />
+    <Compile Include="QuizFlash_Class.cs" />
+    <Compile Include="QuizService.cs" />
     <Compile Include="TeacherClass.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
