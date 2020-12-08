@@ -44,7 +44,7 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="AddClass">
+      <s:element name="CreateClass">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:TeacherClass" />
@@ -59,10 +59,10 @@
           <s:element minOccurs="0" maxOccurs="1" name="User_Type" type="s:string" />
         </s:sequence>
       </s:complexType>
-      <s:element name="AddClassResponse">
+      <s:element name="CreateClassResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="AddClassResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="CreateClassResult" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -94,11 +94,11 @@
   <wsdl:message name="getStudentsSoapOut">
     <wsdl:part name="parameters" element="tns:getStudentsResponse" />
   </wsdl:message>
-  <wsdl:message name="AddClassSoapIn">
-    <wsdl:part name="parameters" element="tns:AddClass" />
+  <wsdl:message name="CreateClassSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateClass" />
   </wsdl:message>
-  <wsdl:message name="AddClassSoapOut">
-    <wsdl:part name="parameters" element="tns:AddClassResponse" />
+  <wsdl:message name="CreateClassSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateClassResponse" />
   </wsdl:message>
   <wsdl:message name="DeleteClassSoapIn">
     <wsdl:part name="parameters" element="tns:DeleteClass" />
@@ -115,9 +115,9 @@
       <wsdl:input message="tns:getStudentsSoapIn" />
       <wsdl:output message="tns:getStudentsSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="AddClass">
-      <wsdl:input message="tns:AddClassSoapIn" />
-      <wsdl:output message="tns:AddClassSoapOut" />
+    <wsdl:operation name="CreateClass">
+      <wsdl:input message="tns:CreateClassSoapIn" />
+      <wsdl:output message="tns:CreateClassSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="DeleteClass">
       <wsdl:input message="tns:DeleteClassSoapIn" />
@@ -144,8 +144,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddClass">
-      <soap:operation soapAction="http://tempuri.org/AddClass" style="document" />
+    <wsdl:operation name="CreateClass">
+      <soap:operation soapAction="http://tempuri.org/CreateClass" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -183,8 +183,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddClass">
-      <soap12:operation soapAction="http://tempuri.org/AddClass" style="document" />
+    <wsdl:operation name="CreateClass">
+      <soap12:operation soapAction="http://tempuri.org/CreateClass" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
