@@ -34,7 +34,7 @@ namespace QuizFlash.ClassService1 {
         
         private System.Threading.SendOrPostCallback getStudentsOperationCompleted;
         
-        private System.Threading.SendOrPostCallback CreateClassOperationCompleted;
+        private System.Threading.SendOrPostCallback AddClassOperationCompleted;
         
         private System.Threading.SendOrPostCallback DeleteClassOperationCompleted;
         
@@ -83,7 +83,7 @@ namespace QuizFlash.ClassService1 {
         public event getStudentsCompletedEventHandler getStudentsCompleted;
         
         /// <remarks/>
-        public event CreateClassCompletedEventHandler CreateClassCompleted;
+        public event AddClassCompletedEventHandler AddClassCompleted;
         
         /// <remarks/>
         public event DeleteClassCompletedEventHandler DeleteClassCompleted;
@@ -147,31 +147,31 @@ namespace QuizFlash.ClassService1 {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CreateClass", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public bool CreateClass(TeacherClass obj) {
-            object[] results = this.Invoke("CreateClass", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddClass", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool AddClass(TeacherClass obj) {
+            object[] results = this.Invoke("AddClass", new object[] {
                         obj});
             return ((bool)(results[0]));
         }
         
         /// <remarks/>
-        public void CreateClassAsync(TeacherClass obj) {
-            this.CreateClassAsync(obj, null);
+        public void AddClassAsync(TeacherClass obj) {
+            this.AddClassAsync(obj, null);
         }
         
         /// <remarks/>
-        public void CreateClassAsync(TeacherClass obj, object userState) {
-            if ((this.CreateClassOperationCompleted == null)) {
-                this.CreateClassOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreateClassOperationCompleted);
+        public void AddClassAsync(TeacherClass obj, object userState) {
+            if ((this.AddClassOperationCompleted == null)) {
+                this.AddClassOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddClassOperationCompleted);
             }
-            this.InvokeAsync("CreateClass", new object[] {
-                        obj}, this.CreateClassOperationCompleted, userState);
+            this.InvokeAsync("AddClass", new object[] {
+                        obj}, this.AddClassOperationCompleted, userState);
         }
         
-        private void OnCreateClassOperationCompleted(object arg) {
-            if ((this.CreateClassCompleted != null)) {
+        private void OnAddClassOperationCompleted(object arg) {
+            if ((this.AddClassCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.CreateClassCompleted(this, new CreateClassCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.AddClassCompleted(this, new AddClassCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -334,17 +334,17 @@ namespace QuizFlash.ClassService1 {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
-    public delegate void CreateClassCompletedEventHandler(object sender, CreateClassCompletedEventArgs e);
+    public delegate void AddClassCompletedEventHandler(object sender, AddClassCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class CreateClassCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class AddClassCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal CreateClassCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal AddClassCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

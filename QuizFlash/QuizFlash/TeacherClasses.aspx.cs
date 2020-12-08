@@ -22,6 +22,7 @@ namespace QuizFlash
             gvClasses.DataSource = pxy.GetClass(Session["username"].ToString());
             gvClasses.DataBind();
 
+
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
@@ -30,7 +31,61 @@ namespace QuizFlash
             Response.Redirect("LoginPage.aspx");
         }
 
-        protected void btnCreateClass_Click1(object sender, EventArgs e)
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            //Get the button that raised the event
+            Button btn = (Button)sender;
+
+            //Get the row that contains this button
+            GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+
+            TeacherClass temp = new TeacherClass();
+            temp.Name = gvr.Cells[1].Text;
+            temp.Subject = gvr.Cells[2].Text;
+            temp.Username = Session["username"].ToString();
+            temp.User_Type = "Teacher";
+            Session["Temp"] = temp;
+            Response.Redirect("ClassPage.aspx");
+
+        }
+
+        protected void gvClasses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnDeleteClass_Click(object sender, EventArgs e)
+        {
+            if (txtClassName.Text == "" || txtClassSubject.Text == "")
+            {
+                lblClassError.Text = "Class could not be Deleted: One or more fields were left blank.";
+            }
+            else
+            {
+                //create proxy object
+                ClassService1.TeacherClass tempClass = new ClassService1.TeacherClass();
+
+                //add values
+                tempClass.Name = txtClassName.Text;
+                tempClass.Subject = txtClassSubject.Text;
+                tempClass.Username = Session["username"].ToString();
+                tempClass.User_Type = "Teacher";
+
+                //use ws method to add object to the class
+
+                if (pxy.DeleteClass(tempClass))
+                {
+                    lblClassError.Text = "The class was added!";
+                }
+                else
+                {
+                    lblClassError.Text = "The class was not successfully Deleted :(";
+                }
+            }
+        }
+
+        protected void btnCreateClass_Click(object sender, EventArgs e)
         {
             if (txtClassName.Text == "" || txtClassSubject.Text == "")
             {
@@ -46,10 +101,14 @@ namespace QuizFlash
                 tempClass.Subject = txtClassSubject.Text;
                 tempClass.Username = Session["username"].ToString();
                 tempClass.User_Type = "Teacher";
+            String name1 = "";
+            String dbStr = "DELETE" +
+                            "FROM TP_Classes WHERE Name='" + gvr.Cells[1].Text +
+                            "'";
 
                 //use ws method to add object to the class
 
-                if (pxy.CreateClass(tempClass))
+                if (pxy.AddClass(tempClass))
                 {
                     lblClassError.Text = "The class was added!";
                 }
@@ -60,29 +119,5 @@ namespace QuizFlash
             }
         }
 
-        protected Boolean btnDelete_Click(object sender, EventArgs e)
-        {
-            //Get the button that raised the event
-            Button btn = (Button)sender;
-
-            //Get the row that contains this button
-            GridViewRow gvr = (GridViewRow)btn.NamingContainer;
-
-
-            DBConnect objDB = new DBConnect();
-
-            String name1 = "";
-            String dbStr = "DELETE" +
-                            "FROM TP_Classes WHERE Name='" + gvr.Cells[1].Text +
-                            "'";
-
-            int retVal = objDB.DoUpdate(dbStr);
-
-            if (retVal > 0)
-                return true;
-            else
-                return false;
-        
-        }
     }
 }
