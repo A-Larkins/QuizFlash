@@ -18,11 +18,18 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
+    <style type="text/css">
+        .auto-style1 {
+            left: 1px;
+            top: 3px;
+        }
+    </style>
+
 </head>
 <body>
     <form id="frmTeacherClasses" runat="server">
         
-        <nav class="navbar navbar-expand-lg" style="background-color: #8ec0e7; background: #8ec0e7;">
+        <nav class="auto-style1" style="background-color: #8ec0e7; background: #8ec0e7;">
             <a class="navbar-brand text-light" href="TeacherHomepage.aspx">
                 <img src="/Images/QuizFlashLogo.png" alt="" /></a>
             
@@ -39,36 +46,31 @@
             </div>
         </nav>
 
-        <div class="container-fluid">
+        <div class="container-fluid" style="border-width:5px; border-color:lightseagreen;">
             <div class="d-flex justify-content-center">
                 <div class="row">
 
-                    <asp:GridView ID="gvClasses" runat="server">
+                    <asp:GridView ID="gvClasses" runat="server" OnSelectedIndexChanged="gvClasses_SelectedIndexChanged">
                     </asp:GridView>
+
+                </div>
+                <div>
                     <asp:Label ID="lblClassName" runat="server" Text="Enter a class name:"></asp:Label>
-&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtClassName" runat="server"></asp:TextBox>
                     <br />
                     <asp:Label ID="lblClassSubject" runat="server" Text="Enter a class subject:"></asp:Label>
-&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtClassSubject" runat="server"></asp:TextBox>
                     <br />
-                    <asp:Button ID="btnCreateClass" runat="server" Text="Create Class" OnClick="btnCreateClass_Click1" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnCreateClass" runat="server" Text="Create Class" OnClick="btnCreateClass_Click" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblClassError" runat="server" Text="Error"></asp:Label>
-
                 </div>
             </div>
         </div>
 
         <div class="container-fluid">
-            <div class="d-flex justify-content-center">
-                <div class="row">
-
-                    *Forms for adding a new class, editing a class, editing a quiz*
-
-                </div>
-            </div>
         </div>
 
     </form>
